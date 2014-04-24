@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		65B9DEF0190933B100B7CE8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DEEF190933B100B7CE8F /* Foundation.framework */; };
+		65B9DEF2190933B100B7CE8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DEF1190933B100B7CE8F /* CoreGraphics.framework */; };
+		65B9DEF4190933B100B7CE8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DEF3190933B100B7CE8F /* UIKit.framework */; };
+		65B9DEFA190933B100B7CE8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65B9DEF8190933B100B7CE8F /* InfoPlist.strings */; };
+		65B9DEFC190933B100B7CE8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B9DEFB190933B100B7CE8F /* main.m */; };
+		65B9DF00190933B100B7CE8F /* CBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B9DEFF190933B100B7CE8F /* CBAppDelegate.m */; };
+		65B9DF03190933B100B7CE8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B9DF01190933B100B7CE8F /* Main.storyboard */; };
+		65B9DF06190933B100B7CE8F /* CBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B9DF05190933B100B7CE8F /* CBViewController.m */; };
+		65B9DF08190933B100B7CE8F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B9DF07190933B100B7CE8F /* Images.xcassets */; };
+		65B9DF0F190933B100B7CE8F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DF0E190933B100B7CE8F /* XCTest.framework */; };
+		65B9DF10190933B100B7CE8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DEEF190933B100B7CE8F /* Foundation.framework */; };
+		65B9DF11190933B100B7CE8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DEF3190933B100B7CE8F /* UIKit.framework */; };
+		65B9DF19190933B100B7CE8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65B9DF17190933B100B7CE8F /* InfoPlist.strings */; };
+		65B9DF1B190933B100B7CE8F /* CarbookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B9DF1A190933B100B7CE8F /* CarbookTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		65B9DF12190933B100B7CE8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65B9DEE4190933B100B7CE8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65B9DEEB190933B100B7CE8F;
+			remoteInfo = Carbook;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		65B9DEEC190933B100B7CE8F /* Carbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B9DEEF190933B100B7CE8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		65B9DEF1190933B100B7CE8F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		65B9DEF3190933B100B7CE8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		65B9DEF7190933B100B7CE8F /* Carbook-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Carbook-Info.plist"; sourceTree = "<group>"; };
+		65B9DEF9190933B100B7CE8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		65B9DEFB190933B100B7CE8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		65B9DEFD190933B100B7CE8F /* Carbook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Carbook-Prefix.pch"; sourceTree = "<group>"; };
+		65B9DEFE190933B100B7CE8F /* CBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBAppDelegate.h; sourceTree = "<group>"; };
+		65B9DEFF190933B100B7CE8F /* CBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBAppDelegate.m; sourceTree = "<group>"; };
+		65B9DF02190933B100B7CE8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		65B9DF04190933B100B7CE8F /* CBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBViewController.h; sourceTree = "<group>"; };
+		65B9DF05190933B100B7CE8F /* CBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBViewController.m; sourceTree = "<group>"; };
+		65B9DF07190933B100B7CE8F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		65B9DF0D190933B100B7CE8F /* CarbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B9DF0E190933B100B7CE8F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		65B9DF16190933B100B7CE8F /* CarbookTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CarbookTests-Info.plist"; sourceTree = "<group>"; };
+		65B9DF18190933B100B7CE8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		65B9DF1A190933B100B7CE8F /* CarbookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarbookTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65B9DEE9190933B100B7CE8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B9DEF2190933B100B7CE8F /* CoreGraphics.framework in Frameworks */,
+				65B9DEF4190933B100B7CE8F /* UIKit.framework in Frameworks */,
+				65B9DEF0190933B100B7CE8F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B9DF0A190933B100B7CE8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B9DF0F190933B100B7CE8F /* XCTest.framework in Frameworks */,
+				65B9DF11190933B100B7CE8F /* UIKit.framework in Frameworks */,
+				65B9DF10190933B100B7CE8F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65B9DEE3190933B100B7CE8F = {
+			isa = PBXGroup;
+			children = (
+				65B9DEF5190933B100B7CE8F /* Carbook */,
+				65B9DF14190933B100B7CE8F /* CarbookTests */,
+				65B9DEEE190933B100B7CE8F /* Frameworks */,
+				65B9DEED190933B100B7CE8F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		65B9DEED190933B100B7CE8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65B9DEEC190933B100B7CE8F /* Carbook.app */,
+				65B9DF0D190933B100B7CE8F /* CarbookTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65B9DEEE190933B100B7CE8F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65B9DEEF190933B100B7CE8F /* Foundation.framework */,
+				65B9DEF1190933B100B7CE8F /* CoreGraphics.framework */,
+				65B9DEF3190933B100B7CE8F /* UIKit.framework */,
+				65B9DF0E190933B100B7CE8F /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		65B9DEF5190933B100B7CE8F /* Carbook */ = {
+			isa = PBXGroup;
+			children = (
+				65B9DEFE190933B100B7CE8F /* CBAppDelegate.h */,
+				65B9DEFF190933B100B7CE8F /* CBAppDelegate.m */,
+				65B9DF01190933B100B7CE8F /* Main.storyboard */,
+				65B9DF04190933B100B7CE8F /* CBViewController.h */,
+				65B9DF05190933B100B7CE8F /* CBViewController.m */,
+				65B9DF07190933B100B7CE8F /* Images.xcassets */,
+				65B9DEF6190933B100B7CE8F /* Supporting Files */,
+			);
+			path = Carbook;
+			sourceTree = "<group>";
+		};
+		65B9DEF6190933B100B7CE8F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				65B9DEF7190933B100B7CE8F /* Carbook-Info.plist */,
+				65B9DEF8190933B100B7CE8F /* InfoPlist.strings */,
+				65B9DEFB190933B100B7CE8F /* main.m */,
+				65B9DEFD190933B100B7CE8F /* Carbook-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		65B9DF14190933B100B7CE8F /* CarbookTests */ = {
+			isa = PBXGroup;
+			children = (
+				65B9DF1A190933B100B7CE8F /* CarbookTests.m */,
+				65B9DF15190933B100B7CE8F /* Supporting Files */,
+			);
+			path = CarbookTests;
+			sourceTree = "<group>";
+		};
+		65B9DF15190933B100B7CE8F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				65B9DF16190933B100B7CE8F /* CarbookTests-Info.plist */,
+				65B9DF17190933B100B7CE8F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		65B9DEEB190933B100B7CE8F /* Carbook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65B9DF1E190933B100B7CE8F /* Build configuration list for PBXNativeTarget "Carbook" */;
+			buildPhases = (
+				65B9DEE8190933B100B7CE8F /* Sources */,
+				65B9DEE9190933B100B7CE8F /* Frameworks */,
+				65B9DEEA190933B100B7CE8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Carbook;
+			productName = Carbook;
+			productReference = 65B9DEEC190933B100B7CE8F /* Carbook.app */;
+			productType = "com.apple.product-type.application";
+		};
+		65B9DF0C190933B100B7CE8F /* CarbookTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65B9DF21190933B100B7CE8F /* Build configuration list for PBXNativeTarget "CarbookTests" */;
+			buildPhases = (
+				65B9DF09190933B100B7CE8F /* Sources */,
+				65B9DF0A190933B100B7CE8F /* Frameworks */,
+				65B9DF0B190933B100B7CE8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65B9DF13190933B100B7CE8F /* PBXTargetDependency */,
+			);
+			name = CarbookTests;
+			productName = CarbookTests;
+			productReference = 65B9DF0D190933B100B7CE8F /* CarbookTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		65B9DEE4190933B100B7CE8F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CB;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = A2;
+				TargetAttributes = {
+					65B9DF0C190933B100B7CE8F = {
+						TestTargetID = 65B9DEEB190933B100B7CE8F;
+					};
+				};
+			};
+			buildConfigurationList = 65B9DEE7190933B100B7CE8F /* Build configuration list for PBXProject "Carbook" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 65B9DEE3190933B100B7CE8F;
+			productRefGroup = 65B9DEED190933B100B7CE8F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65B9DEEB190933B100B7CE8F /* Carbook */,
+				65B9DF0C190933B100B7CE8F /* CarbookTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		65B9DEEA190933B100B7CE8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B9DF08190933B100B7CE8F /* Images.xcassets in Resources */,
+				65B9DEFA190933B100B7CE8F /* InfoPlist.strings in Resources */,
+				65B9DF03190933B100B7CE8F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B9DF0B190933B100B7CE8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B9DF19190933B100B7CE8F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65B9DEE8190933B100B7CE8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B9DEFC190933B100B7CE8F /* main.m in Sources */,
+				65B9DF00190933B100B7CE8F /* CBAppDelegate.m in Sources */,
+				65B9DF06190933B100B7CE8F /* CBViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B9DF09190933B100B7CE8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B9DF1B190933B100B7CE8F /* CarbookTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		65B9DF13190933B100B7CE8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65B9DEEB190933B100B7CE8F /* Carbook */;
+			targetProxy = 65B9DF12190933B100B7CE8F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		65B9DEF8190933B100B7CE8F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65B9DEF9190933B100B7CE8F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		65B9DF01190933B100B7CE8F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65B9DF02190933B100B7CE8F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		65B9DF17190933B100B7CE8F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65B9DF18190933B100B7CE8F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		65B9DF1C190933B100B7CE8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		65B9DF1D190933B100B7CE8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		65B9DF1F190933B100B7CE8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Carbook/Carbook-Prefix.pch";
+				INFOPLIST_FILE = "Carbook/Carbook-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		65B9DF20190933B100B7CE8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Carbook/Carbook-Prefix.pch";
+				INFOPLIST_FILE = "Carbook/Carbook-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		65B9DF22190933B100B7CE8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Carbook.app/Carbook";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Carbook/Carbook-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CarbookTests/CarbookTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		65B9DF23190933B100B7CE8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Carbook.app/Carbook";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Carbook/Carbook-Prefix.pch";
+				INFOPLIST_FILE = "CarbookTests/CarbookTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65B9DEE7190933B100B7CE8F /* Build configuration list for PBXProject "Carbook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B9DF1C190933B100B7CE8F /* Debug */,
+				65B9DF1D190933B100B7CE8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65B9DF1E190933B100B7CE8F /* Build configuration list for PBXNativeTarget "Carbook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B9DF1F190933B100B7CE8F /* Debug */,
+				65B9DF20190933B100B7CE8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		65B9DF21190933B100B7CE8F /* Build configuration list for PBXNativeTarget "CarbookTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B9DF22190933B100B7CE8F /* Debug */,
+				65B9DF23190933B100B7CE8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 65B9DEE4190933B100B7CE8F /* Project object */;
+}
