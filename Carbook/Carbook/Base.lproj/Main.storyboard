@@ -31,11 +31,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="resultCell" id="t0V-tg-8fD" customClass="CBResultsTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="resultCell" id="t0V-tg-8fD" customClass="CBResultsTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t0V-tg-8fD" id="aIR-ZJ-Pli">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HN-vN-NxJ">
@@ -55,6 +55,7 @@
                                 <connections>
                                     <outlet property="nameLabel" destination="2HN-vN-NxJ" id="4rA-fD-s9H"/>
                                     <outlet property="phoneLabel" destination="IlU-mj-nm7" id="v3E-ea-wLi"/>
+                                    <segue destination="ESq-yU-oep" kind="push" id="DfI-cp-srC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -67,7 +68,35 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QwR-OR-fYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1715" y="342"/>
+            <point key="canvasLocation" x="1579" y="240"/>
+        </scene>
+        <!--Route View Controller-->
+        <scene sceneID="ysy-Or-0qq">
+            <objects>
+                <viewController id="ESq-yU-oep" customClass="CBRouteViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LyG-lU-sTM"/>
+                        <viewControllerLayoutGuide type="bottom" id="hTb-Yp-h7v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l5T-Gc-t9j">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xYh-nf-IcA">
+                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aJr-E4-z0S"/>
+                    <connections>
+                        <outlet property="routeMap" destination="xYh-nf-IcA" id="rm0-fY-sny"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5ay-p0-wYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2047" y="332"/>
         </scene>
         <!--Map Sample View Controller-->
         <scene sceneID="gqT-Fp-38v">
@@ -140,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADM-7c-Udg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1317" y="342"/>
+            <point key="canvasLocation" x="1207" y="261"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="L6E-2v-hds">
@@ -159,7 +188,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B0n-EI-DBW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="934" y="342"/>
+            <point key="canvasLocation" x="799" y="210"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

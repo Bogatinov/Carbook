@@ -70,4 +70,16 @@
     
     return cell;
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    CBRouteViewController *routeController =
+    [segue destinationViewController];
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    
+    long row = [indexPath row];
+    
+    routeController.destination = _mapItems[row];
+}
 @end

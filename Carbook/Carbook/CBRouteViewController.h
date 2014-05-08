@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @interface CBRouteViewController : UIViewController
-
+<MKMapViewDelegate>
+@property (strong, nonatomic) IBOutlet MKMapView *routeMap;
+@property (strong, nonatomic) MKMapItem *destination;
 @end

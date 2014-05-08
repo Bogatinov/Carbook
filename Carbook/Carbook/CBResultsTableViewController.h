@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "CBResultsTableViewCell.h"
+#import "CBRouteViewController.h"
 
 @interface CBResultsTableViewController : UITableViewController
 @property (strong, nonatomic) NSArray *mapItems;
