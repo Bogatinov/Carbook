@@ -49,7 +49,7 @@
 #pragma mark -GMSMapViewDelegate
 
 - (void)mapView:(GMSMapView *)mapView
-didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+didTapAtCoordinate:(CLLocationCoordinate2D)coordinate{
     NSLog(@"You tapped at %f,%f", coordinate.latitude, coordinate.longitude);
 }
 - (void)mapView:(GMSMapView *)mapView willMove:(BOOL)gesture {

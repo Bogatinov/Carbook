@@ -35,6 +35,11 @@
 		65B9DF3B190938D300B7CE8F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DF3A190938D300B7CE8F /* OpenGLES.framework */; };
 		65B9DF3D190938DD00B7CE8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DF3C190938DD00B7CE8F /* QuartzCore.framework */; };
 		65B9DF3F1909390A00B7CE8F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DF3E1909390A00B7CE8F /* SystemConfiguration.framework */; };
+		A31D1D05191BC0B60020C888 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D1D04191BC0B60020C888 /* MapKit.framework */; };
+		A31D1D07191BC9EF0020C888 /* CBMapSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D1D02191BBE580020C888 /* CBMapSampleViewController.m */; };
+		A31D1D0A191BCC410020C888 /* CBResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D1D09191BCC410020C888 /* CBResultsTableViewController.m */; };
+		A31D1D0D191BCCC60020C888 /* CBResultsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D1D0C191BCCC60020C888 /* CBResultsTableViewCell.m */; };
+		A31D1D10191BCCE70020C888 /* CBRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D1D0F191BCCE70020C888 /* CBRouteViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +86,15 @@
 		65B9DF3A190938D300B7CE8F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		65B9DF3C190938DD00B7CE8F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		65B9DF3E1909390A00B7CE8F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A31D1D01191BBE580020C888 /* CBMapSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMapSampleViewController.h; sourceTree = "<group>"; };
+		A31D1D02191BBE580020C888 /* CBMapSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMapSampleViewController.m; sourceTree = "<group>"; };
+		A31D1D04191BC0B60020C888 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A31D1D08191BCC410020C888 /* CBResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBResultsTableViewController.h; sourceTree = "<group>"; };
+		A31D1D09191BCC410020C888 /* CBResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBResultsTableViewController.m; sourceTree = "<group>"; };
+		A31D1D0B191BCCC60020C888 /* CBResultsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBResultsTableViewCell.h; sourceTree = "<group>"; };
+		A31D1D0C191BCCC60020C888 /* CBResultsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBResultsTableViewCell.m; sourceTree = "<group>"; };
+		A31D1D0E191BCCE70020C888 /* CBRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBRouteViewController.h; sourceTree = "<group>"; };
+		A31D1D0F191BCCE70020C888 /* CBRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBRouteViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A31D1D05191BC0B60020C888 /* MapKit.framework in Frameworks */,
 				65B9DF3F1909390A00B7CE8F /* SystemConfiguration.framework in Frameworks */,
 				65B9DF3D190938DD00B7CE8F /* QuartzCore.framework in Frameworks */,
 				65B9DF3B190938D300B7CE8F /* OpenGLES.framework in Frameworks */,
@@ -142,6 +157,7 @@
 		65B9DEEE190933B100B7CE8F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A31D1D04191BC0B60020C888 /* MapKit.framework */,
 				65B9DF3E1909390A00B7CE8F /* SystemConfiguration.framework */,
 				65B9DF3C190938DD00B7CE8F /* QuartzCore.framework */,
 				65B9DF3A190938D300B7CE8F /* OpenGLES.framework */,
@@ -174,6 +190,14 @@
 				65B9DF05190933B100B7CE8F /* CBViewController.m */,
 				65B9DF07190933B100B7CE8F /* Images.xcassets */,
 				65B9DEF6190933B100B7CE8F /* Supporting Files */,
+				A31D1D01191BBE580020C888 /* CBMapSampleViewController.h */,
+				A31D1D02191BBE580020C888 /* CBMapSampleViewController.m */,
+				A31D1D08191BCC410020C888 /* CBResultsTableViewController.h */,
+				A31D1D09191BCC410020C888 /* CBResultsTableViewController.m */,
+				A31D1D0B191BCCC60020C888 /* CBResultsTableViewCell.h */,
+				A31D1D0C191BCCC60020C888 /* CBResultsTableViewCell.m */,
+				A31D1D0E191BCCE70020C888 /* CBRouteViewController.h */,
+				A31D1D0F191BCCE70020C888 /* CBRouteViewController.m */,
 			);
 			path = Carbook;
 			sourceTree = "<group>";
@@ -306,9 +330,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A31D1D07191BC9EF0020C888 /* CBMapSampleViewController.m in Sources */,
 				65B9DEFC190933B100B7CE8F /* main.m in Sources */,
 				65B9DF00190933B100B7CE8F /* CBAppDelegate.m in Sources */,
 				65B9DF06190933B100B7CE8F /* CBViewController.m in Sources */,
+				A31D1D0A191BCC410020C888 /* CBResultsTableViewController.m in Sources */,
+				A31D1D10191BCCE70020C888 /* CBRouteViewController.m in Sources */,
+				A31D1D0D191BCCC60020C888 /* CBResultsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +551,7 @@
 				65B9DF20190933B100B7CE8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65B9DF21190933B100B7CE8F /* Build configuration list for PBXNativeTarget "CarbookTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +560,7 @@
 				65B9DF23190933B100B7CE8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
