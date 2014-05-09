@@ -20,7 +20,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="430" y="394"/>
+            <point key="canvasLocation" x="69" y="82"/>
         </scene>
         <!--Results Table View Controller - Root View Controller-->
         <scene sceneID="Wxs-W7-ePB">
@@ -68,7 +68,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QwR-OR-fYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1579" y="240"/>
+            <point key="canvasLocation" x="948" y="309"/>
         </scene>
         <!--Route View Controller-->
         <scene sceneID="ysy-Or-0qq">
@@ -96,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ay-p0-wYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2047" y="332"/>
+            <point key="canvasLocation" x="1440" y="309"/>
         </scene>
         <!--Map Sample View Controller-->
         <scene sceneID="gqT-Fp-38v">
@@ -169,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADM-7c-Udg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1207" y="261"/>
+            <point key="canvasLocation" x="558" y="309"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="L6E-2v-hds">
@@ -188,7 +188,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B0n-EI-DBW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799" y="210"/>
+            <point key="canvasLocation" x="69" y="744"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
