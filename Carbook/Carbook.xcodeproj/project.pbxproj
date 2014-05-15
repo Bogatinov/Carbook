@@ -35,6 +35,7 @@
 		65B9DF3B190938D300B7CE8F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DF3A190938D300B7CE8F /* OpenGLES.framework */; };
 		65B9DF3D190938DD00B7CE8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DF3C190938DD00B7CE8F /* QuartzCore.framework */; };
 		65B9DF3F1909390A00B7CE8F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DF3E1909390A00B7CE8F /* SystemConfiguration.framework */; };
+		A3162BE41924EB3000E66492 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3162BE31924EB3000E66492 /* FacebookSDK.framework */; };
 		A31D1D05191BC0B60020C888 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D1D04191BC0B60020C888 /* MapKit.framework */; };
 		A31D1D07191BC9EF0020C888 /* CBMapSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D1D02191BBE580020C888 /* CBMapSampleViewController.m */; };
 		A31D1D0A191BCC410020C888 /* CBResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D1D09191BCC410020C888 /* CBResultsTableViewController.m */; };
@@ -86,6 +87,7 @@
 		65B9DF3A190938D300B7CE8F /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		65B9DF3C190938DD00B7CE8F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		65B9DF3E1909390A00B7CE8F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A3162BE31924EB3000E66492 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		A31D1D01191BBE580020C888 /* CBMapSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMapSampleViewController.h; sourceTree = "<group>"; };
 		A31D1D02191BBE580020C888 /* CBMapSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMapSampleViewController.m; sourceTree = "<group>"; };
 		A31D1D04191BC0B60020C888 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -107,6 +109,7 @@
 				65B9DF3D190938DD00B7CE8F /* QuartzCore.framework in Frameworks */,
 				65B9DF3B190938D300B7CE8F /* OpenGLES.framework in Frameworks */,
 				65B9DF39190938C800B7CE8F /* libz.dylib in Frameworks */,
+				A3162BE41924EB3000E66492 /* FacebookSDK.framework in Frameworks */,
 				65B9DF37190938BD00B7CE8F /* libicucore.dylib in Frameworks */,
 				65B9DF35190938A700B7CE8F /* libc++.dylib in Frameworks */,
 				65B9DF331909389700B7CE8F /* ImageIO.framework in Frameworks */,
@@ -157,6 +160,7 @@
 		65B9DEEE190933B100B7CE8F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3162BE31924EB3000E66492 /* FacebookSDK.framework */,
 				A31D1D04191BC0B60020C888 /* MapKit.framework */,
 				65B9DF3E1909390A00B7CE8F /* SystemConfiguration.framework */,
 				65B9DF3C190938DD00B7CE8F /* QuartzCore.framework */,
@@ -461,6 +465,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -480,6 +485,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

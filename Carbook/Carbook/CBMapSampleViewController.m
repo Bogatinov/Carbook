@@ -93,13 +93,24 @@ didUpdateUserLocation:
             }
     }];
 }
-
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if(!_matchingItems) {
+        UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Nothing searched" message:@"You must search to know more about a place" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+        [view show];
+        return NO;
+    }
+    return YES;
+}
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     CBResultsTableViewController *destination =
     [segue destinationViewController];
     
     destination.mapItems = _matchingItems;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 @end
