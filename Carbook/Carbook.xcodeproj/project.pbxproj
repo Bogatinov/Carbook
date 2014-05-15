@@ -283,6 +283,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = A2;
 				TargetAttributes = {
+					65B9DEEB190933B100B7CE8F = {
+						DevelopmentTeam = 78SLAU59XT;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					65B9DF0C190933B100B7CE8F = {
 						TestTargetID = 65B9DEEB190933B100B7CE8F;
 					};
