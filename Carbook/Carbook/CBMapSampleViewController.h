@@ -14,10 +14,13 @@
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UITextField *searchText;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *stepsToDestination;
+@property (strong, nonatomic) IBOutlet UILabel *speedLabel;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation *lastLocation;
 @property (strong, nonatomic) NSMutableArray *matchingItems;
+@property (strong, nonatomic) NSArray *stepItems;
 
 - (IBAction)changeMapType:(id)sender;
 - (IBAction)textFieldReturn:(id)sender;

@@ -4,7 +4,54 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Map Sample View Controller-->
+        <!--Steps Table View Controller - Follow thy steps-->
+        <scene sceneID="3I0-U5-tiz">
+            <objects>
+                <tableViewController id="cY0-qh-GMb" customClass="CBStepsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="94" sectionHeaderHeight="22" sectionFooterHeight="22" id="c1O-3n-tRa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="stepCell" rowHeight="94" id="Hgb-Dw-DBE" customClass="CBStepTableViewCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="94"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hgb-Dw-DBE" id="qyd-oP-gwv">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="190" translatesAutoresizingMaskIntoConstraints="NO" id="sV8-lm-R8A">
+                                            <rect key="frame" x="18" y="14" width="190" height="65"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mI4-I3-wzU">
+                                            <rect key="frame" x="216" y="14" width="90" height="65"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="distanceLabel" destination="mI4-I3-wzU" id="aJc-e2-nwq"/>
+                                    <outlet property="instructionLabel" destination="sV8-lm-R8A" id="38X-iI-SIw"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cY0-qh-GMb" id="wJv-px-sqm"/>
+                            <outlet property="delegate" destination="cY0-qh-GMb" id="oNc-ug-D1Z"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Follow thy steps" id="eBU-SD-yp9"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8hg-dQ-WFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="208" y="-69"/>
+        </scene>
+        <!--Map Sample View Controller - Carbook-->
         <scene sceneID="gqT-Fp-38v">
             <objects>
                 <viewController id="sJM-J4-UtB" customClass="CBMapSampleViewController" sceneMemberID="viewController">
@@ -25,24 +72,31 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="aAy-DO-9zh"/>
-                                    <barButtonItem systemItem="action" id="reC-hr-SDr">
+                                    <barButtonItem enabled="NO" image="Top_Charts" id="gQn-fA-06Y">
                                         <connections>
-                                            <action selector="shareImage:" destination="sJM-J4-UtB" id="LLi-Rt-MLm"/>
+                                            <action selector="getMyLocation:" destination="sJM-J4-UtB" id="FKc-Rv-E9h"/>
+                                            <segue destination="cY0-qh-GMb" kind="push" identifier="ShowSteps" id="vum-Yq-JHI"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="eFS-Vg-dEy"/>
-                                    <barButtonItem systemItem="camera" id="3XX-hX-yDG">
-                                        <connections>
-                                            <action selector="useCamera:" destination="sJM-J4-UtB" id="8R9-4c-kuY"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="PZZ-vn-UpC"/>
                                     <barButtonItem image="Layers" id="TsY-YZ-rts">
                                         <connections>
                                             <action selector="changeMapType:" destination="sJM-J4-UtB" id="cq1-29-hOP"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="PZZ-vn-UpC"/>
+                                    <barButtonItem systemItem="camera" id="3XX-hX-yDG">
+                                        <connections>
+                                            <action selector="useCamera:" destination="sJM-J4-UtB" id="8R9-4c-kuY"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="m47-74-zpG"/>
+                                    <barButtonItem image="Facebook" id="reC-hr-SDr">
+                                        <connections>
+                                            <action selector="shareImage:" destination="sJM-J4-UtB" id="LLi-Rt-MLm"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="6ZC-2q-mkt"/>
                                 </items>
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for places" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b2X-7g-Xi8">
@@ -54,6 +108,13 @@
                                     <action selector="textFieldReturn:" destination="sJM-J4-UtB" eventType="editingDidEndOnExit" id="7EE-Jp-63e"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TtX-de-gua">
+                                <rect key="frame" x="114" y="107" width="93" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -70,11 +131,13 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="XC6-Nn-n4I"/>
+                    <navigationItem key="navigationItem" title="Carbook" id="XC6-Nn-n4I"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="yxe-Wv-PhR" id="Ogc-4D-YTc"/>
                         <outlet property="searchText" destination="b2X-7g-Xi8" id="hLd-ZZ-ugn"/>
+                        <outlet property="speedLabel" destination="TtX-de-gua" id="toJ-2Q-6fS"/>
+                        <outlet property="stepsToDestination" destination="gQn-fA-06Y" id="LPH-w5-0N8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADM-7c-Udg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -86,7 +149,6 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OCR-ml-vnb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="oHI-4V-VMV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fyo-iI-b0s">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -102,7 +164,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Facebook" width="25" height="25"/>
         <image name="Layers" width="27" height="22"/>
+        <image name="Top_Charts" width="27" height="23"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

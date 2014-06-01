@@ -3,19 +3,19 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "carbook-1.png",
+      "filename" : "120x120-2.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "carbook.png",
+      "filename" : "120x120-1.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "ios7 60pt.png",
+      "filename" : "120x120.png",
       "scale" : "2x"
     }
   ],

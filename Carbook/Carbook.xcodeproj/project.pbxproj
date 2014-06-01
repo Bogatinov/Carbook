@@ -38,6 +38,8 @@
 		A31D1D05191BC0B60020C888 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D1D04191BC0B60020C888 /* MapKit.framework */; };
 		A31D1D07191BC9EF0020C888 /* CBMapSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D1D02191BBE580020C888 /* CBMapSampleViewController.m */; };
 		A36FDAEE193B975B009B602C /* CBCameraSharer.m in Sources */ = {isa = PBXBuildFile; fileRef = A36FDAED193B975B009B602C /* CBCameraSharer.m */; };
+		A36FDAF1193BAC85009B602C /* CBStepTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A36FDAF0193BAC85009B602C /* CBStepTableViewCell.m */; };
+		A36FDAF4193BB704009B602C /* CBStepsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A36FDAF3193BB704009B602C /* CBStepsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,10 @@
 		A31D1D04191BC0B60020C888 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A36FDAEC193B975B009B602C /* CBCameraSharer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCameraSharer.h; sourceTree = "<group>"; };
 		A36FDAED193B975B009B602C /* CBCameraSharer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCameraSharer.m; sourceTree = "<group>"; };
+		A36FDAEF193BAC85009B602C /* CBStepTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBStepTableViewCell.h; path = ../CBStepTableViewCell.h; sourceTree = "<group>"; };
+		A36FDAF0193BAC85009B602C /* CBStepTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBStepTableViewCell.m; path = ../CBStepTableViewCell.m; sourceTree = "<group>"; };
+		A36FDAF2193BB704009B602C /* CBStepsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBStepsTableViewController.h; sourceTree = "<group>"; };
+		A36FDAF3193BB704009B602C /* CBStepsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStepsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +184,8 @@
 		65B9DEF5190933B100B7CE8F /* Carbook */ = {
 			isa = PBXGroup;
 			children = (
+				A36FDAEF193BAC85009B602C /* CBStepTableViewCell.h */,
+				A36FDAF0193BAC85009B602C /* CBStepTableViewCell.m */,
 				65B9DEFE190933B100B7CE8F /* CBAppDelegate.h */,
 				65B9DEFF190933B100B7CE8F /* CBAppDelegate.m */,
 				65B9DF01190933B100B7CE8F /* Main.storyboard */,
@@ -187,6 +195,8 @@
 				A31D1D02191BBE580020C888 /* CBMapSampleViewController.m */,
 				A36FDAEC193B975B009B602C /* CBCameraSharer.h */,
 				A36FDAED193B975B009B602C /* CBCameraSharer.m */,
+				A36FDAF2193BB704009B602C /* CBStepsTableViewController.h */,
+				A36FDAF3193BB704009B602C /* CBStepsTableViewController.m */,
 			);
 			path = Carbook;
 			sourceTree = "<group>";
@@ -329,6 +339,8 @@
 				A31D1D07191BC9EF0020C888 /* CBMapSampleViewController.m in Sources */,
 				65B9DEFC190933B100B7CE8F /* main.m in Sources */,
 				65B9DF00190933B100B7CE8F /* CBAppDelegate.m in Sources */,
+				A36FDAF1193BAC85009B602C /* CBStepTableViewCell.m in Sources */,
+				A36FDAF4193BB704009B602C /* CBStepsTableViewController.m in Sources */,
 				A36FDAEE193B975B009B602C /* CBCameraSharer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

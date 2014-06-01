@@ -9,13 +9,14 @@
 #import "CBMapSampleViewController.h"
 #import <MapKit/MapKit.h>
 #import "CBCameraSharer.h"
+#import "CBStepsTableViewController.h"
 
 @interface CBMapSampleViewController ()
 @property (nonatomic,assign) CLLocationCoordinate2D destination;
 @end
 
 @implementation CBMapSampleViewController
-@synthesize locationManager,lastLocation,mapView, destination;
+@synthesize locationManager,mapView, destination, stepsToDestination, stepItems;
 
 - (void) initialize{
     self.lastLocation = nil;
@@ -56,13 +57,11 @@
     CLLocationCoordinate2D userLocation = locationManager.location.coordinate;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (userLocation, 20000, 20000);
     [mapView setRegion:region animated:NO];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction) useCamera:(id)sender
@@ -72,23 +71,8 @@
                        animated:YES completion:nil];
 }
 
-- (IBAction)changeMapType:(id)sender {
-    if (mapView.mapType == MKMapTypeStandard) {
-        mapView.mapType = MKMapTypeSatellite;
-    }
-    else {
-        mapView.mapType = MKMapTypeStandard;
-    }
-}
-- (IBAction)shareImage:(id)sender {
-}
 
-- (void)mapView:(MKMapView *)mapView
-didUpdateUserLocation:
-(MKUserLocation *)userLocation
-{
-    mapView.centerCoordinate =
-    userLocation.location.coordinate;
+- (IBAction)shareImage:(id)sender {
 }
 
 - (IBAction)textFieldReturn:(id)sender {
@@ -111,7 +95,7 @@ didUpdateUserLocation:
     [search startWithCompletionHandler:^(MKLocalSearchResponse
                                          *response, NSError *error) {
         if (response.mapItems.count == 0) {
-            NSLog(@"No Matches");
+            stepsToDestination.enabled = NO;
             UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Nothing found" message:@"That place does not exists" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
             [view show];
         }
@@ -138,33 +122,65 @@ didUpdateUserLocation:
 
 #pragma mark - CLLocationManagerDelegate Methods
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
-    NSLog(@"Location failed with error %@",error);
     [manager stopUpdatingLocation];
 }
 
-- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-    lastLocation = [locations lastObject];
-    
-    NSLog(@"Latitude: %f --- Longitude: %f",self.lastLocation.coordinate.latitude,self.lastLocation.coordinate.longitude);
-    
+- (void)mapView:(MKMapView *)mapView
+didUpdateUserLocation:
+(MKUserLocation *)userLocation
+{
+    mapView.centerCoordinate =
+    userLocation.location.coordinate;
 }
 
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    double gpsSpeed = newLocation.speed;
+    
+    if(oldLocation != nil)
+    {
+        
+        CLLocationDistance distanceChange = [newLocation getDistanceFrom:oldLocation];
+        NSTimeInterval sinceLastUpdate = [newLocation.timestamp timeIntervalSinceDate:oldLocation.timestamp];
+        double calculatedSpeed = distanceChange / sinceLastUpdate;
+    }
+    if(gpsSpeed > 0) {
+        _speedLabel.text = [NSString stringWithFormat:@"%.02f m/s", gpsSpeed];
+    }
+}
 
 
 #pragma mark -
 #pragma mark MKMapView Delegate
 
+- (IBAction)changeMapType:(id)sender {
+    if (mapView.mapType == MKMapTypeStandard) {
+        mapView.mapType = MKMapTypeSatellite;
+    }
+    else {
+        mapView.mapType = MKMapTypeStandard;
+    }
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
-    MKPinAnnotationView *dropPin=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"venues"];
-    UIButton *disclosureButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
-    [disclosureButton addTarget:self action:@selector(getDirections) forControlEvents:UIControlEventTouchUpInside];
+    if (annotation == mapView.userLocation)
+    {
+        return nil;
+    }
+    else
+    {
+        MKPinAnnotationView *dropPin=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"venues"];
+        UIButton *disclosureButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+        [disclosureButton addTarget:self action:@selector(getDirections) forControlEvents:UIControlEventTouchUpInside];
     
-    dropPin.rightCalloutAccessoryView = disclosureButton;
-    dropPin.animatesDrop = YES;
-    dropPin.canShowCallout = YES;
+        dropPin.rightCalloutAccessoryView = disclosureButton;
+        dropPin.animatesDrop = YES;
+        dropPin.canShowCallout = YES;
     
-    return dropPin;
+        return dropPin;
+    }
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
@@ -173,7 +189,6 @@ didUpdateUserLocation:
 
 - (void)getDirections
 {
-    NSLog(@"I have clicked on an annotation point");
     if(CLLocationCoordinate2DIsValid(destination)) {
         [mapView removeOverlays:mapView.overlays];
         MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:destination addressDictionary:nil];
@@ -187,8 +202,13 @@ didUpdateUserLocation:
         [directions calculateDirectionsWithCompletionHandler:
          ^(MKDirectionsResponse *response, NSError *error) {
              if (error) {
-                 // Handle error
+                 stepsToDestination.enabled = NO;
+                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not reach that far" message:[error localizedFailureReason] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+                 [alert show];
              } else {
+                 MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance ([[locationManager location] coordinate], 3000, 3000);
+                 
+                 [mapView setRegion:region animated:YES];
                  [self showRoute:response];
              }
          }];
@@ -197,14 +217,11 @@ didUpdateUserLocation:
 
 -(void)showRoute:(MKDirectionsResponse *)response
 {
+    stepsToDestination.enabled = YES;
     for (MKRoute *route in response.routes)
     {
         [mapView addOverlay:route.polyline level:MKOverlayLevelAboveRoads];
-        
-        for (MKRouteStep *step in route.steps)
-        {
-            NSLog(@"%@", step.instructions);
-        }
+        stepItems = route.steps;
     }
 }
 
@@ -216,6 +233,22 @@ didUpdateUserLocation:
     renderer.lineWidth = 5.0;
     
     return renderer;
+}
+
+#pragma mark -
+#pragma mark Segue to Instructions
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([identifier isEqualToString:@"ShowSteps"]) {
+        return YES;
+    }
+    return NO;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"ShowSteps"]) {
+        CBStepsTableViewController *stvc = (CBStepsTableViewController *)segue.destinationViewController;
+        stvc.stepItems = stepItems;
+    }
 }
 
 @end
