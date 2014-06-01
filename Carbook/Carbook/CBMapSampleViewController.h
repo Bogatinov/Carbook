@@ -8,15 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "CBResultsTableViewController.h"
 
 @interface CBMapSampleViewController : UIViewController
-<MKMapViewDelegate>
+<CLLocationManagerDelegate, MKMapViewDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UITextField *searchText;
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLLocation *lastLocation;
 @property (strong, nonatomic) NSMutableArray *matchingItems;
-- (IBAction)zoomIn:(id)sender;
+
 - (IBAction)changeMapType:(id)sender;
 - (IBAction)textFieldReturn:(id)sender;
+- (IBAction)useCamera:(id)sender;
+- (IBAction)shareImage:(id)sender;
 @end

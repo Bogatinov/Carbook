@@ -14,7 +14,6 @@
 		65B9DEFC190933B100B7CE8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B9DEFB190933B100B7CE8F /* main.m */; };
 		65B9DF00190933B100B7CE8F /* CBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B9DEFF190933B100B7CE8F /* CBAppDelegate.m */; };
 		65B9DF03190933B100B7CE8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B9DF01190933B100B7CE8F /* Main.storyboard */; };
-		65B9DF06190933B100B7CE8F /* CBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B9DF05190933B100B7CE8F /* CBViewController.m */; };
 		65B9DF08190933B100B7CE8F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B9DF07190933B100B7CE8F /* Images.xcassets */; };
 		65B9DF0F190933B100B7CE8F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DF0E190933B100B7CE8F /* XCTest.framework */; };
 		65B9DF10190933B100B7CE8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DEEF190933B100B7CE8F /* Foundation.framework */; };
@@ -38,9 +37,7 @@
 		A3162BE41924EB3000E66492 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3162BE31924EB3000E66492 /* FacebookSDK.framework */; };
 		A31D1D05191BC0B60020C888 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D1D04191BC0B60020C888 /* MapKit.framework */; };
 		A31D1D07191BC9EF0020C888 /* CBMapSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D1D02191BBE580020C888 /* CBMapSampleViewController.m */; };
-		A31D1D0A191BCC410020C888 /* CBResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D1D09191BCC410020C888 /* CBResultsTableViewController.m */; };
-		A31D1D0D191BCCC60020C888 /* CBResultsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D1D0C191BCCC60020C888 /* CBResultsTableViewCell.m */; };
-		A31D1D10191BCCE70020C888 /* CBRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D1D0F191BCCE70020C888 /* CBRouteViewController.m */; };
+		A36FDAEE193B975B009B602C /* CBCameraSharer.m in Sources */ = {isa = PBXBuildFile; fileRef = A36FDAED193B975B009B602C /* CBCameraSharer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +62,6 @@
 		65B9DEFE190933B100B7CE8F /* CBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBAppDelegate.h; sourceTree = "<group>"; };
 		65B9DEFF190933B100B7CE8F /* CBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBAppDelegate.m; sourceTree = "<group>"; };
 		65B9DF02190933B100B7CE8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		65B9DF04190933B100B7CE8F /* CBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBViewController.h; sourceTree = "<group>"; };
-		65B9DF05190933B100B7CE8F /* CBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBViewController.m; sourceTree = "<group>"; };
 		65B9DF07190933B100B7CE8F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		65B9DF0D190933B100B7CE8F /* CarbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B9DF0E190933B100B7CE8F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -91,12 +86,8 @@
 		A31D1D01191BBE580020C888 /* CBMapSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMapSampleViewController.h; sourceTree = "<group>"; };
 		A31D1D02191BBE580020C888 /* CBMapSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMapSampleViewController.m; sourceTree = "<group>"; };
 		A31D1D04191BC0B60020C888 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		A31D1D08191BCC410020C888 /* CBResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBResultsTableViewController.h; sourceTree = "<group>"; };
-		A31D1D09191BCC410020C888 /* CBResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBResultsTableViewController.m; sourceTree = "<group>"; };
-		A31D1D0B191BCCC60020C888 /* CBResultsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBResultsTableViewCell.h; sourceTree = "<group>"; };
-		A31D1D0C191BCCC60020C888 /* CBResultsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBResultsTableViewCell.m; sourceTree = "<group>"; };
-		A31D1D0E191BCCE70020C888 /* CBRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBRouteViewController.h; sourceTree = "<group>"; };
-		A31D1D0F191BCCE70020C888 /* CBRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBRouteViewController.m; sourceTree = "<group>"; };
+		A36FDAEC193B975B009B602C /* CBCameraSharer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCameraSharer.h; sourceTree = "<group>"; };
+		A36FDAED193B975B009B602C /* CBCameraSharer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCameraSharer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,18 +181,12 @@
 				65B9DEFE190933B100B7CE8F /* CBAppDelegate.h */,
 				65B9DEFF190933B100B7CE8F /* CBAppDelegate.m */,
 				65B9DF01190933B100B7CE8F /* Main.storyboard */,
-				65B9DF04190933B100B7CE8F /* CBViewController.h */,
-				65B9DF05190933B100B7CE8F /* CBViewController.m */,
 				65B9DF07190933B100B7CE8F /* Images.xcassets */,
 				65B9DEF6190933B100B7CE8F /* Supporting Files */,
 				A31D1D01191BBE580020C888 /* CBMapSampleViewController.h */,
 				A31D1D02191BBE580020C888 /* CBMapSampleViewController.m */,
-				A31D1D08191BCC410020C888 /* CBResultsTableViewController.h */,
-				A31D1D09191BCC410020C888 /* CBResultsTableViewController.m */,
-				A31D1D0B191BCCC60020C888 /* CBResultsTableViewCell.h */,
-				A31D1D0C191BCCC60020C888 /* CBResultsTableViewCell.m */,
-				A31D1D0E191BCCE70020C888 /* CBRouteViewController.h */,
-				A31D1D0F191BCCE70020C888 /* CBRouteViewController.m */,
+				A36FDAEC193B975B009B602C /* CBCameraSharer.h */,
+				A36FDAED193B975B009B602C /* CBCameraSharer.m */,
 			);
 			path = Carbook;
 			sourceTree = "<group>";
@@ -344,10 +329,7 @@
 				A31D1D07191BC9EF0020C888 /* CBMapSampleViewController.m in Sources */,
 				65B9DEFC190933B100B7CE8F /* main.m in Sources */,
 				65B9DF00190933B100B7CE8F /* CBAppDelegate.m in Sources */,
-				65B9DF06190933B100B7CE8F /* CBViewController.m in Sources */,
-				A31D1D0A191BCC410020C888 /* CBResultsTableViewController.m in Sources */,
-				A31D1D10191BCCE70020C888 /* CBRouteViewController.m in Sources */,
-				A31D1D0D191BCCC60020C888 /* CBResultsTableViewCell.m in Sources */,
+				A36FDAEE193B975B009B602C /* CBCameraSharer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
