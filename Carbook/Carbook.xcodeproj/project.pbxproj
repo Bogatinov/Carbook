@@ -90,8 +90,8 @@
 		A31D1D04191BC0B60020C888 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A36FDAEC193B975B009B602C /* CBCameraSharer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCameraSharer.h; sourceTree = "<group>"; };
 		A36FDAED193B975B009B602C /* CBCameraSharer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCameraSharer.m; sourceTree = "<group>"; };
-		A36FDAEF193BAC85009B602C /* CBStepTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBStepTableViewCell.h; path = ../CBStepTableViewCell.h; sourceTree = "<group>"; };
-		A36FDAF0193BAC85009B602C /* CBStepTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBStepTableViewCell.m; path = ../CBStepTableViewCell.m; sourceTree = "<group>"; };
+		A36FDAEF193BAC85009B602C /* CBStepTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBStepTableViewCell.h; sourceTree = "<group>"; };
+		A36FDAF0193BAC85009B602C /* CBStepTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStepTableViewCell.m; sourceTree = "<group>"; };
 		A36FDAF2193BB704009B602C /* CBStepsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBStepsTableViewController.h; sourceTree = "<group>"; };
 		A36FDAF3193BB704009B602C /* CBStepsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStepsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +138,7 @@
 		65B9DEE3190933B100B7CE8F = {
 			isa = PBXGroup;
 			children = (
+				A3FA21A1193C9E1B005837A0 /* Custom Controls */,
 				65B9DEF5190933B100B7CE8F /* Carbook */,
 				65B9DF14190933B100B7CE8F /* CarbookTests */,
 				65B9DEEE190933B100B7CE8F /* Frameworks */,
@@ -184,8 +185,6 @@
 		65B9DEF5190933B100B7CE8F /* Carbook */ = {
 			isa = PBXGroup;
 			children = (
-				A36FDAEF193BAC85009B602C /* CBStepTableViewCell.h */,
-				A36FDAF0193BAC85009B602C /* CBStepTableViewCell.m */,
 				65B9DEFE190933B100B7CE8F /* CBAppDelegate.h */,
 				65B9DEFF190933B100B7CE8F /* CBAppDelegate.m */,
 				65B9DF01190933B100B7CE8F /* Main.storyboard */,
@@ -228,6 +227,15 @@
 				65B9DF17190933B100B7CE8F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A3FA21A1193C9E1B005837A0 /* Custom Controls */ = {
+			isa = PBXGroup;
+			children = (
+				A36FDAEF193BAC85009B602C /* CBStepTableViewCell.h */,
+				A36FDAF0193BAC85009B602C /* CBStepTableViewCell.m */,
+			);
+			name = "Custom Controls";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

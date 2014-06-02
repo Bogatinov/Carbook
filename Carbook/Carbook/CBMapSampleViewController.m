@@ -59,6 +59,14 @@
     [mapView setRegion:region animated:NO];
 }
 
+-(void)viewWillDisappear:(BOOL)animated {
+    [UIView beginAnimations:@"animation" context:nil];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    [UIView setAnimationDuration: 0.7];
+    [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:NO];
+    [UIView commitAnimations];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

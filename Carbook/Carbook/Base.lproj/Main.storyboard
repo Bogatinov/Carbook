@@ -75,7 +75,7 @@
                                     <barButtonItem enabled="NO" image="Top_Charts" id="gQn-fA-06Y">
                                         <connections>
                                             <action selector="getMyLocation:" destination="sJM-J4-UtB" id="FKc-Rv-E9h"/>
-                                            <segue destination="cY0-qh-GMb" kind="push" identifier="ShowSteps" id="vum-Yq-JHI"/>
+                                            <segue destination="cY0-qh-GMb" kind="push" identifier="ShowSteps" customClass="CBCustomSegue" id="EhP-Ey-9E7"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="eFS-Vg-dEy"/>
