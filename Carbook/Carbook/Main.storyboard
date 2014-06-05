@@ -54,7 +54,7 @@
         <!--Map Sample View Controller - Carbook-->
         <scene sceneID="gqT-Fp-38v">
             <objects>
-                <viewController id="sJM-J4-UtB" customClass="CBMapSampleViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CBMapSampleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sJM-J4-UtB" customClass="CBMapSampleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jKc-Bo-m5d"/>
                         <viewControllerLayoutGuide type="bottom" id="YtH-4X-Db8"/>
@@ -108,10 +108,10 @@
                                     <action selector="textFieldReturn:" destination="sJM-J4-UtB" eventType="editingDidEndOnExit" id="7EE-Jp-63e"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TtX-de-gua">
-                                <rect key="frame" x="114" y="107" width="93" height="67"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="TtX-de-gua">
+                                <rect key="frame" x="20" y="107" width="280" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -131,7 +131,9 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Carbook" id="XC6-Nn-n4I"/>
+                    <navigationItem key="navigationItem" title="Carbook" id="XC6-Nn-n4I">
+                        <barButtonItem key="backBarButtonItem" title="Find your car" id="22a-1r-Inw"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="yxe-Wv-PhR" id="Ogc-4D-YTc"/>
@@ -142,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADM-7c-Udg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="707" y="181"/>
+            <point key="canvasLocation" x="965" y="443"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="L6E-2v-hds">
@@ -155,15 +157,89 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="sJM-J4-UtB" kind="relationship" relationship="rootViewController" id="SXV-d4-fOW"/>
+                        <segue destination="ck4-sc-3Bl" kind="relationship" relationship="rootViewController" id="cVQ-uf-nPg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B0n-EI-DBW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="69" y="744"/>
+            <point key="canvasLocation" x="64" y="776"/>
+        </scene>
+        <!--View Controller - Find your car-->
+        <scene sceneID="Yk9-fQ-vZt">
+            <objects>
+                <viewController id="ck4-sc-3Bl" customClass="CBViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sTw-xC-EZl"/>
+                        <viewControllerLayoutGuide type="bottom" id="eFN-Sj-UJJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U5h-lY-6IO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Maker" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ppv-a4-AeO">
+                                <rect key="frame" x="16" y="258" width="48" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Model" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odf-oU-aoY">
+                                <rect key="frame" x="16" y="430" width="48" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkN-lZ-Fac">
+                                <rect key="frame" x="20" y="88" width="34" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SK7-f6-fM2">
+                                <rect key="frame" x="-9" y="235" width="329" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ck4-sc-3Bl" id="K0S-8V-QtG"/>
+                                    <outlet property="delegate" destination="ck4-sc-3Bl" id="KnW-Pg-sk8"/>
+                                </connections>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ufg-NZ-J0i">
+                                <rect key="frame" x="0.0" y="405" width="320" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZiM-4J-ci4">
+                                <rect key="frame" x="0.0" y="65" width="320" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ck4-sc-3Bl" id="NWh-9L-1Hm"/>
+                                    <outlet property="delegate" destination="ck4-sc-3Bl" id="QCM-Pc-47b"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Find your car" id="KuI-hY-0HT">
+                        <barButtonItem key="rightBarButtonItem" image="Add" id="Qd7-9C-w5y">
+                            <connections>
+                                <segue destination="sJM-J4-UtB" kind="push" id="mPS-gN-jl2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="buttonAddCar" destination="Qd7-9C-w5y" id="Jyv-bV-Siw"/>
+                        <outlet property="godina_dropdown" destination="ZiM-4J-ci4" id="he8-Ub-mDn"/>
+                        <outlet property="marki_dropdown" destination="SK7-f6-fM2" id="3HY-0T-V69"/>
+                        <outlet property="modeli_dropdown" destination="Ufg-NZ-J0i" id="cuq-Tg-GoZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ZL-Cc-zBi" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="512" y="840"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Add" width="25" height="25"/>
         <image name="Facebook" width="25" height="25"/>
         <image name="Layers" width="27" height="22"/>
         <image name="Top_Charts" width="27" height="23"/>

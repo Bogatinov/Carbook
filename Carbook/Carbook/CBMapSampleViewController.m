@@ -10,13 +10,14 @@
 #import <MapKit/MapKit.h>
 #import "CBCameraSharer.h"
 #import "CBStepsTableViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface CBMapSampleViewController ()
 @property (nonatomic,assign) CLLocationCoordinate2D destination;
 @end
 
 @implementation CBMapSampleViewController
-@synthesize locationManager,mapView, destination, stepsToDestination, stepItems;
+@synthesize locationManager,mapView, destination, stepsToDestination, stepItems,speedLabel,potrosnja;
 
 - (void) initialize{
     self.lastLocation = nil;
@@ -34,6 +35,10 @@
     return self;
 }
 
+- (void) proba:(NSString *)potros {
+    potrosnja=potros;
+   // NSLog(potrosnja);
+}
 - (id) init{
     if (self = [super init]){
         [self initialize];
@@ -57,6 +62,8 @@
     CLLocationCoordinate2D userLocation = locationManager.location.coordinate;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (userLocation, 20000, 20000);
     [mapView setRegion:region animated:NO];
+    speedLabel.text=potrosnja;
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -78,9 +85,77 @@
     [self presentViewController:camera.imagePicker
                        animated:YES completion:nil];
 }
-
+// A function for parsing URL parameters returned by the Feed Dialog.
+- (NSDictionary*)parseURLParams:(NSString *)query {
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    for (NSString *pair in pairs) {
+        NSArray *kv = [pair componentsSeparatedByString:@"="];
+        NSString *val =
+        [kv[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        params[kv[0]] = val;
+    }
+    return params;
+}
 
 - (IBAction)shareImage:(id)sender {
+    NSLog(@"hello");
+    FBLinkShareParams *params = [[FBLinkShareParams alloc] init];
+    params.link = [NSURL URLWithString:@"https://developers.facebook.com/apps/1457821291128045"];
+    
+    // If the Facebook app is installed and we can present the share dialog
+    if ([FBDialogs canPresentShareDialogWithParams:params]) {
+        // Present the share dialog
+        [FBDialogs presentShareDialogWithLink:params.link
+                                      handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                                          if(error) {
+                                              // An error occurred, we need to handle the error
+                                              // See: https://developers.facebook.com/docs/ios/errors
+                                              NSLog(@"Error publishing story: %@", error.description);
+                                          } else {
+                                              // Success
+                                              NSLog(@"result %@", results);
+                                          }
+                                      }];
+    } else {
+        // Present the feed dialog
+        NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                       @"Join Carbook", @"name",
+                                       @"Find your way, wherever you are going.", @"caption",
+                                       @"Use our application to find cool destinations, and calculate the fuel consumtion to the place you plan to visit", @"description",
+                                       @"https://developers.facebook.com/apps/1457821291128045", @"link",
+                                       @"http://i.imgur.com/QzWSs4D.png", @"picture",
+                                       nil];
+        
+        // Show the feed dialog
+        [FBWebDialogs presentFeedDialogModallyWithSession:nil
+                                               parameters:params
+                                                  handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
+                                                      if (error) {
+                                                          // An error occurred, we need to handle the error
+                                                          // See: https://developers.facebook.com/docs/ios/errors
+                                                          NSLog(@"Error publishing story: %@", error.description);
+                                                      } else {
+                                                          if (result == FBWebDialogResultDialogNotCompleted) {
+                                                              // User cancelled.
+                                                              NSLog(@"User cancelled.");
+                                                          } else {
+                                                              // Handle the publish feed callback
+                                                              NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
+                                                              
+                                                              if (![urlParams valueForKey:@"post_id"]) {
+                                                                  // User cancelled.
+                                                                  NSLog(@"User cancelled.");
+                                                                  
+                                                              } else {
+                                                                  // User clicked the Share button
+                                                                  NSString *result = [NSString stringWithFormat: @"Posted story, id: %@", [urlParams valueForKey:@"post_id"]];
+                                                                  NSLog(@"result %@", result);
+                                                              }
+                                                          }
+                                                      }
+                                                  }];
+    }
 }
 
 - (IBAction)textFieldReturn:(id)sender {
@@ -154,7 +229,7 @@ didUpdateUserLocation:
         double calculatedSpeed = distanceChange / sinceLastUpdate;
     }
     if(gpsSpeed > 0) {
-        _speedLabel.text = [NSString stringWithFormat:@"%.02f m/s", gpsSpeed];
+        //_speedLabel.text = [NSString stringWithFormat:@"%.02f m/s", gpsSpeed];
     }
 }
 

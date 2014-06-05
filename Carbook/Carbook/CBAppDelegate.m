@@ -7,14 +7,57 @@
 //
 
 #import "CBAppDelegate.h"
-
+#import "CBrssParser.h"
+#import "CBAppDelegate.h"
+#import "CBCar.h"
+#import <FacebookSDK/FacebookSDK.h>
 @implementation CBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     return YES;
 }
-							
+-(void) pustiBaranje:(NSString *)make model:(NSString *)mod year:(int)god
+{
+    NSMutableString * str= [NSMutableString string];
+    [str appendString:@"http://www.fueleconomy.gov/ws/rest/ympg/shared/vehicles?make="];
+    make = [make stringByReplacingOccurrencesOfString:@" "
+                                           withString:@"%20"];
+    [str appendString:make];
+    [str appendString:@"&model="];
+    mod = [mod stringByReplacingOccurrencesOfString:@" "
+                                         withString:@"%20"];
+    [str appendString:mod];
+    
+    NSURL *url = [[NSURL alloc] initWithString:str];
+    NSXMLParser *xmlparser = [[NSXMLParser alloc] initWithContentsOfURL:url];
+    
+    CBrssParser *parser = [[CBrssParser alloc] init];
+    parser.year=god;
+    [xmlparser setDelegate:parser];
+    
+    BOOL success = [xmlparser parse];
+    
+    if(success){
+        NSLog(@"No Errors");
+    }
+    else{
+        NSLog(@"Error Error Error!!!");
+    }
+}
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    BOOL urlWasHandled = [FBAppCall handleOpenURL:url
+                                sourceApplication:sourceApplication
+                                  fallbackHandler:^(FBAppCall *call) {
+                                      NSLog(@"Unhandled deep link: %@", url);
+                                  }];
+    
+    return urlWasHandled;
+}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -23,8 +66,20 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSDate *alertTime = [[NSDate date]
+                         dateByAddingTimeInterval:600];
+    UIApplication* app = [UIApplication sharedApplication];
+    UILocalNotification* notifyAlarm = [[UILocalNotification alloc]
+                                        init];
+    if (notifyAlarm)
+    {
+        notifyAlarm.fireDate = alertTime;
+        notifyAlarm.timeZone = [NSTimeZone defaultTimeZone];
+        notifyAlarm.repeatInterval = 0;
+        notifyAlarm.soundName = @"bell_tree.mp3";
+        notifyAlarm.alertBody = @"Come back to check new places for traveling.";
+        [app scheduleLocalNotification:notifyAlarm];
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

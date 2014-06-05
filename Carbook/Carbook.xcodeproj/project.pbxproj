@@ -12,8 +12,6 @@
 		65B9DEF4190933B100B7CE8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DEF3190933B100B7CE8F /* UIKit.framework */; };
 		65B9DEFA190933B100B7CE8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65B9DEF8190933B100B7CE8F /* InfoPlist.strings */; };
 		65B9DEFC190933B100B7CE8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B9DEFB190933B100B7CE8F /* main.m */; };
-		65B9DF00190933B100B7CE8F /* CBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B9DEFF190933B100B7CE8F /* CBAppDelegate.m */; };
-		65B9DF03190933B100B7CE8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B9DF01190933B100B7CE8F /* Main.storyboard */; };
 		65B9DF08190933B100B7CE8F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B9DF07190933B100B7CE8F /* Images.xcassets */; };
 		65B9DF0F190933B100B7CE8F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DF0E190933B100B7CE8F /* XCTest.framework */; };
 		65B9DF10190933B100B7CE8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DEEF190933B100B7CE8F /* Foundation.framework */; };
@@ -36,10 +34,17 @@
 		65B9DF3F1909390A00B7CE8F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9DF3E1909390A00B7CE8F /* SystemConfiguration.framework */; };
 		A3162BE41924EB3000E66492 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3162BE31924EB3000E66492 /* FacebookSDK.framework */; };
 		A31D1D05191BC0B60020C888 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31D1D04191BC0B60020C888 /* MapKit.framework */; };
-		A31D1D07191BC9EF0020C888 /* CBMapSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31D1D02191BBE580020C888 /* CBMapSampleViewController.m */; };
+		A32BE41D1940AFE500212A9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32BE41C1940AFE500212A9E /* Main.storyboard */; };
+		A32BE4211940B0DC00212A9E /* Carbook-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A32BE4201940B0DC00212A9E /* Carbook-Info.plist */; };
+		A32BE4231940B18700212A9E /* CBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BE4221940B18700212A9E /* CBAppDelegate.m */; };
+		A32BE42A1940B22A00212A9E /* CBMapSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BE4251940B22A00212A9E /* CBMapSampleViewController.m */; };
+		A32BE42B1940B22A00212A9E /* CBStepsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BE4271940B22A00212A9E /* CBStepsTableViewController.m */; };
+		A32BE42C1940B22A00212A9E /* CBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BE4291940B22A00212A9E /* CBViewController.m */; };
+		A32BE42F1940B23C00212A9E /* CBCar.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BE42E1940B23C00212A9E /* CBCar.m */; };
+		A32BE4321940B24400212A9E /* CBrssParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BE4311940B24400212A9E /* CBrssParser.m */; };
+		A32BE4351940B25000212A9E /* PotrozuvackaModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A32BE4331940B25000212A9E /* PotrozuvackaModel.xcdatamodeld */; };
 		A36FDAEE193B975B009B602C /* CBCameraSharer.m in Sources */ = {isa = PBXBuildFile; fileRef = A36FDAED193B975B009B602C /* CBCameraSharer.m */; };
 		A36FDAF1193BAC85009B602C /* CBStepTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A36FDAF0193BAC85009B602C /* CBStepTableViewCell.m */; };
-		A36FDAF4193BB704009B602C /* CBStepsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A36FDAF3193BB704009B602C /* CBStepsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,13 +62,9 @@
 		65B9DEEF190933B100B7CE8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		65B9DEF1190933B100B7CE8F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		65B9DEF3190933B100B7CE8F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		65B9DEF7190933B100B7CE8F /* Carbook-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Carbook-Info.plist"; sourceTree = "<group>"; };
 		65B9DEF9190933B100B7CE8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		65B9DEFB190933B100B7CE8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		65B9DEFD190933B100B7CE8F /* Carbook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Carbook-Prefix.pch"; sourceTree = "<group>"; };
-		65B9DEFE190933B100B7CE8F /* CBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBAppDelegate.h; sourceTree = "<group>"; };
-		65B9DEFF190933B100B7CE8F /* CBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBAppDelegate.m; sourceTree = "<group>"; };
-		65B9DF02190933B100B7CE8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65B9DF07190933B100B7CE8F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		65B9DF0D190933B100B7CE8F /* CarbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B9DF0E190933B100B7CE8F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -85,15 +86,26 @@
 		65B9DF3C190938DD00B7CE8F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		65B9DF3E1909390A00B7CE8F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A3162BE31924EB3000E66492 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		A31D1D01191BBE580020C888 /* CBMapSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMapSampleViewController.h; sourceTree = "<group>"; };
-		A31D1D02191BBE580020C888 /* CBMapSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMapSampleViewController.m; sourceTree = "<group>"; };
 		A31D1D04191BC0B60020C888 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A32BE41C1940AFE500212A9E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A32BE4201940B0DC00212A9E /* Carbook-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Carbook-Info.plist"; sourceTree = "<group>"; };
+		A32BE4221940B18700212A9E /* CBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAppDelegate.m; sourceTree = "<group>"; };
+		A32BE4241940B22A00212A9E /* CBMapSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMapSampleViewController.h; sourceTree = "<group>"; };
+		A32BE4251940B22A00212A9E /* CBMapSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMapSampleViewController.m; sourceTree = "<group>"; };
+		A32BE4261940B22A00212A9E /* CBStepsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBStepsTableViewController.h; sourceTree = "<group>"; };
+		A32BE4271940B22A00212A9E /* CBStepsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStepsTableViewController.m; sourceTree = "<group>"; };
+		A32BE4281940B22A00212A9E /* CBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBViewController.h; sourceTree = "<group>"; };
+		A32BE4291940B22A00212A9E /* CBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBViewController.m; sourceTree = "<group>"; };
+		A32BE42D1940B23C00212A9E /* CBCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCar.h; sourceTree = "<group>"; };
+		A32BE42E1940B23C00212A9E /* CBCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCar.m; sourceTree = "<group>"; };
+		A32BE4301940B24400212A9E /* CBrssParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBrssParser.h; sourceTree = "<group>"; };
+		A32BE4311940B24400212A9E /* CBrssParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBrssParser.m; sourceTree = "<group>"; };
+		A32BE4341940B25000212A9E /* PotrozuvackaModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PotrozuvackaModel.xcdatamodel; sourceTree = "<group>"; };
+		A32BE4361940B27700212A9E /* CBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBAppDelegate.h; sourceTree = "<group>"; };
 		A36FDAEC193B975B009B602C /* CBCameraSharer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCameraSharer.h; sourceTree = "<group>"; };
 		A36FDAED193B975B009B602C /* CBCameraSharer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCameraSharer.m; sourceTree = "<group>"; };
 		A36FDAEF193BAC85009B602C /* CBStepTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBStepTableViewCell.h; sourceTree = "<group>"; };
 		A36FDAF0193BAC85009B602C /* CBStepTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStepTableViewCell.m; sourceTree = "<group>"; };
-		A36FDAF2193BB704009B602C /* CBStepsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBStepsTableViewController.h; sourceTree = "<group>"; };
-		A36FDAF3193BB704009B602C /* CBStepsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStepsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,17 +197,13 @@
 		65B9DEF5190933B100B7CE8F /* Carbook */ = {
 			isa = PBXGroup;
 			children = (
-				65B9DEFE190933B100B7CE8F /* CBAppDelegate.h */,
-				65B9DEFF190933B100B7CE8F /* CBAppDelegate.m */,
-				65B9DF01190933B100B7CE8F /* Main.storyboard */,
+				A32BE41F1940B02000212A9E /* Model */,
+				A32BE41E1940B00B00212A9E /* Controllers */,
+				A32BE4221940B18700212A9E /* CBAppDelegate.m */,
+				A32BE4361940B27700212A9E /* CBAppDelegate.h */,
 				65B9DF07190933B100B7CE8F /* Images.xcassets */,
 				65B9DEF6190933B100B7CE8F /* Supporting Files */,
-				A31D1D01191BBE580020C888 /* CBMapSampleViewController.h */,
-				A31D1D02191BBE580020C888 /* CBMapSampleViewController.m */,
-				A36FDAEC193B975B009B602C /* CBCameraSharer.h */,
-				A36FDAED193B975B009B602C /* CBCameraSharer.m */,
-				A36FDAF2193BB704009B602C /* CBStepsTableViewController.h */,
-				A36FDAF3193BB704009B602C /* CBStepsTableViewController.m */,
+				A32BE41C1940AFE500212A9E /* Main.storyboard */,
 			);
 			path = Carbook;
 			sourceTree = "<group>";
@@ -203,7 +211,7 @@
 		65B9DEF6190933B100B7CE8F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				65B9DEF7190933B100B7CE8F /* Carbook-Info.plist */,
+				A32BE4201940B0DC00212A9E /* Carbook-Info.plist */,
 				65B9DEF8190933B100B7CE8F /* InfoPlist.strings */,
 				65B9DEFB190933B100B7CE8F /* main.m */,
 				65B9DEFD190933B100B7CE8F /* Carbook-Prefix.pch */,
@@ -227,6 +235,33 @@
 				65B9DF17190933B100B7CE8F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A32BE41E1940B00B00212A9E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A32BE4241940B22A00212A9E /* CBMapSampleViewController.h */,
+				A32BE4251940B22A00212A9E /* CBMapSampleViewController.m */,
+				A32BE4261940B22A00212A9E /* CBStepsTableViewController.h */,
+				A32BE4271940B22A00212A9E /* CBStepsTableViewController.m */,
+				A32BE4281940B22A00212A9E /* CBViewController.h */,
+				A32BE4291940B22A00212A9E /* CBViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A32BE41F1940B02000212A9E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A32BE4331940B25000212A9E /* PotrozuvackaModel.xcdatamodeld */,
+				A32BE4301940B24400212A9E /* CBrssParser.h */,
+				A32BE4311940B24400212A9E /* CBrssParser.m */,
+				A32BE42D1940B23C00212A9E /* CBCar.h */,
+				A32BE42E1940B23C00212A9E /* CBCar.m */,
+				A36FDAED193B975B009B602C /* CBCameraSharer.m */,
+				A36FDAEC193B975B009B602C /* CBCameraSharer.h */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		A3FA21A1193C9E1B005837A0 /* Custom Controls */ = {
@@ -323,9 +358,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				65B9DF08190933B100B7CE8F /* Images.xcassets in Resources */,
+				A32BE41D1940AFE500212A9E /* Main.storyboard in Resources */,
 				65B9DEFA190933B100B7CE8F /* InfoPlist.strings in Resources */,
-				65B9DF03190933B100B7CE8F /* Main.storyboard in Resources */,
 				65B9DF271909381B00B7CE8F /* GoogleMaps.bundle in Resources */,
+				A32BE4211940B0DC00212A9E /* Carbook-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,12 +380,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A31D1D07191BC9EF0020C888 /* CBMapSampleViewController.m in Sources */,
+				A32BE4321940B24400212A9E /* CBrssParser.m in Sources */,
+				A32BE4231940B18700212A9E /* CBAppDelegate.m in Sources */,
+				A32BE42C1940B22A00212A9E /* CBViewController.m in Sources */,
 				65B9DEFC190933B100B7CE8F /* main.m in Sources */,
-				65B9DF00190933B100B7CE8F /* CBAppDelegate.m in Sources */,
 				A36FDAF1193BAC85009B602C /* CBStepTableViewCell.m in Sources */,
-				A36FDAF4193BB704009B602C /* CBStepsTableViewController.m in Sources */,
 				A36FDAEE193B975B009B602C /* CBCameraSharer.m in Sources */,
+				A32BE42F1940B23C00212A9E /* CBCar.m in Sources */,
+				A32BE42B1940B22A00212A9E /* CBStepsTableViewController.m in Sources */,
+				A32BE4351940B25000212A9E /* PotrozuvackaModel.xcdatamodeld in Sources */,
+				A32BE42A1940B22A00212A9E /* CBMapSampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,14 +418,6 @@
 				65B9DEF9190933B100B7CE8F /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		65B9DF01190933B100B7CE8F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				65B9DF02190933B100B7CE8F /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		65B9DF17190933B100B7CE8F /* InfoPlist.strings */ = {
@@ -586,6 +618,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A32BE4331940B25000212A9E /* PotrozuvackaModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A32BE4341940B25000212A9E /* PotrozuvackaModel.xcdatamodel */,
+			);
+			currentVersion = A32BE4341940B25000212A9E /* PotrozuvackaModel.xcdatamodel */;
+			path = PotrozuvackaModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 65B9DEE4190933B100B7CE8F /* Project object */;
 }
