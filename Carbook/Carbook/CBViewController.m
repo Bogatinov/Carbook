@@ -54,6 +54,7 @@
     }
     else{
         string_potrosnja=temp;
+        selektirana_godina=@"2014";
         CBMapSampleViewController *ivc = [self.storyboard instantiateViewControllerWithIdentifier:@"CBMapSampleViewController"];
         [self.navigationController pushViewController:ivc animated:YES];
         [ivc proba:string_potrosnja];
@@ -119,7 +120,8 @@
         return [self.marki objectAtIndex:row];
     else if(pickerView==godina_dropdown)
         return [self.godini objectAtIndex:row];
-    else return [self.modeli objectAtIndex:row];
+    else if(pickerView==modeli_dropdown)return [self.modeli objectAtIndex:row];
+    else return @"@@@";
 
 }
 
@@ -232,7 +234,7 @@
         response = [response stringByReplacingOccurrencesOfString:fullContents withString:@""];
     }
     self.marki = tempHeadlines;
-    self.modeli= tempMakes;
+   // self.modeli= tempMakes;
     [marki_dropdown reloadAllComponents];
 }
 
