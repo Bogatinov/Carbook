@@ -227,7 +227,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="buttonAddCar" destination="Qd7-9C-w5y" id="Jyv-bV-Siw"/>
                         <outlet property="godina_dropdown" destination="ZiM-4J-ci4" id="he8-Ub-mDn"/>
                         <outlet property="marki_dropdown" destination="SK7-f6-fM2" id="3HY-0T-V69"/>
                         <outlet property="modeli_dropdown" destination="Ufg-NZ-J0i" id="cuq-Tg-GoZ"/>

@@ -10,8 +10,10 @@
 #import "CbAppDelegate.h"
 #import "CBCar.h"
 #import "CBMapSampleViewController.h"
-@interface CBViewController ()
 
+
+@interface CBViewController ()
+    
 @end
 
 @implementation CBViewController
@@ -207,6 +209,9 @@
     CBMapSampleViewController *secView = [segue destinationViewController];
     [secView proba:string_potrosnja];
 }
+
+
+
 - (void) refresh{
      NSMutableString * str= [NSMutableString string];
     if(selektirana_godina!=nil){
@@ -217,7 +222,6 @@
         [str appendString:@"http://www.fueleconomy.gov/ws/rest/vehicle/menu/make?year=2013"];
 
     }
-   
     NSURL *URL = [NSURL URLWithString:[str stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
     
     //  Request the url and store the response into NSData

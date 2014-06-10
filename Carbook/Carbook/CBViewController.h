@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *Make_field;
 @property (weak, nonatomic) IBOutlet UITextField *Model_field;
 @property (weak, nonatomic) IBOutlet UITextField *Year_Field;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *buttonAddCar;
 @property (nonatomic, retain) CBAppDelegate *appdelegate;
 @property (strong  ,atomic) NSMutableArray * marki;
 @property (weak, nonatomic) IBOutlet UIPickerView *marki_dropdown;
