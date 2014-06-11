@@ -11,45 +11,14 @@
 #import "CBAppDelegate.h"
 #import "CBCar.h"
 #import <FacebookSDK/FacebookSDK.h>
-#import "CBReachability.h"
 
 @interface CBAppDelegate()
-@property (strong, atomic) CBReachability *internetReachable;
 @end
 
 @implementation CBAppDelegate
-@synthesize internetReachable;
-- (void)testInternetConnection
-{
-    internetReachable = [CBReachability reachabilityWithHostname:@"http://www.fueleconomy.gov/"];
-    
-    // Internet is reachable
-    internetReachable.reachableBlock = ^(CBReachability*reach)
-    {
-        // Update the UI on the main thread
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"Yayyy, we have the interwebs!");
-        });
-    };
-    
-    // Internet is not reachable
-    internetReachable.unreachableBlock = ^(CBReachability*reach)
-    {
-        // Update the UI on the main thread
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"Someone broke the internet :(");
-            //UIAlertView *noInternet = [[UIAlertView alloc] initWithTitle:@"Magician not here" message:@"Check if our internet is available in Settings" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-            //[noInternet show];
-        });
-    };
-    
-    [internetReachable startNotifier];
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // TODO: Handle if there is no internet connection available
-    [self testInternetConnection];
     return YES;
 }
 -(void) pustiBaranje:(NSString *)make model:(NSString *)mod year:(int)god

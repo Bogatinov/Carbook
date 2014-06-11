@@ -10,10 +10,15 @@
 #import "CbAppDelegate.h"
 #import "CBCar.h"
 #import "CBMapSampleViewController.h"
+#import "CBReachability.h"
+#import <SystemConfiguration/SystemConfiguration.h>
 
 
 @interface CBViewController ()
-    
+@property (nonatomic, strong) CBReachability* internetReachable;
+@property (nonatomic, strong) CBReachability* hostReachable;
+@property (nonatomic,assign) BOOL internetActive;
+@property (nonatomic,assign) BOOL hostActive;
 @end
 
 @implementation CBViewController
@@ -35,6 +40,75 @@
 @synthesize filename;
 @synthesize filepath;
 @synthesize homeDir;
+
+-(void)viewWillAppear:(BOOL)animated {
+    // check for internet connection
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
+    
+    _internetReachable = [CBReachability reachabilityForInternetConnection];
+    [_internetReachable startNotifier];
+    
+    // check if a pathway to a random host exists
+    _hostReachable = [CBReachability reachabilityWithHostName:@"http://www.fueleconomy.gov"];
+    [_hostReachable startNotifier];
+}
+
+-(void) checkNetworkStatus:(NSNotification *)notice
+{
+    // called after network status changes
+    NetworkStatus internetStatus = [_internetReachable currentReachabilityStatus];
+    switch (internetStatus)
+    {
+        case NotReachable:
+        {
+            NSLog(@"The internet is down.");
+            self.internetActive = NO;
+            
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            NSLog(@"The internet is working via WIFI.");
+            self.internetActive = YES;
+            
+            break;
+        }
+        case ReachableViaWWAN:
+        {
+            NSLog(@"The internet is working via WWAN.");
+            self.internetActive = YES;
+            
+            break;
+        }
+    }
+    
+    NetworkStatus hostStatus = [_hostReachable currentReachabilityStatus];
+    switch (hostStatus)
+    {
+        case NotReachable:
+        {
+            NSLog(@"A gateway to the host server is down.");
+            self.hostActive = NO;
+            
+            break;
+        }
+        case ReachableViaWiFi:
+        {
+            NSLog(@"A gateway to the host server is working via WIFI.");
+            self.hostActive = YES;
+            
+            break;
+        }
+        case ReachableViaWWAN:
+        {
+            NSLog(@"A gateway to the host server is working via WWAN.");
+            self.hostActive = YES;
+            
+            break;
+        }
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -68,7 +142,6 @@
 {
     filepath = [[NSString alloc] init];
     NSError *error;
-    NSString *title;
     filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:@"carbook.data"];
     NSString *txtInFile = [[NSString alloc] initWithContentsOfFile:filepath encoding:NSUnicodeStringEncoding error:&error];
     
@@ -168,11 +241,6 @@
     if(selektirana_godina==nil||selektirana_marka==nil||selektiran_model==nil) {
         return NO;
     }
-    return YES;
-}
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    [super prepareForSegue:segue sender:sender];
     [((CBAppDelegate *)[[UIApplication sharedApplication] delegate]) pustiBaranje:selektirana_marka model:selektiran_model year: [selektirana_godina intValue]];
     appdelegate = (CBAppDelegate *)[[UIApplication sharedApplication] delegate];
     if([appdelegate.cars count]==0)
@@ -184,9 +252,14 @@
                                                 otherButtonTitles:nil];
         
         [message show];
-        string_potrosnja=@"";
+        return NO;
     }
-    else{
+
+    return YES;
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [super prepareForSegue:segue sender:sender];
         CBCar *car= [appdelegate.cars objectAtIndex:0];
         double  liters=235.214/car.comb08;
         
@@ -205,7 +278,6 @@
             NSLog(@"Error writing file at %@\n%@",
                   filepath, [err localizedFailureReason]);
         }
-    }
     CBMapSampleViewController *secView = [segue destinationViewController];
     [secView proba:string_potrosnja];
 }
@@ -213,33 +285,43 @@
 
 
 - (void) refresh{
-     NSMutableString * str= [NSMutableString string];
-    if(selektirana_godina!=nil){
-    [str appendString:@"http://www.fueleconomy.gov/ws/rest/vehicle/menu/make?year="];
-        [str appendString:selektirana_godina];}
-    else{
-       
-        [str appendString:@"http://www.fueleconomy.gov/ws/rest/vehicle/menu/make?year=2013"];
+    if([self internetActive] && [self hostReachable]) {
+        NSMutableString * str= [NSMutableString string];
+        if(selektirana_godina!=nil){
+            [str appendString:@"http://www.fueleconomy.gov/ws/rest/vehicle/menu/make?year="];
+            [str appendString:selektirana_godina];}
+        else{
+            [str appendString:@"http://www.fueleconomy.gov/ws/rest/vehicle/menu/make?year=2013"];
 
-    }
-    NSURL *URL = [NSURL URLWithString:[str stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+        }
+        NSURL *URL = [NSURL URLWithString:[str stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
     
-    //  Request the url and store the response into NSData
-    NSData *data = [NSData dataWithContentsOfURL:URL];
+        //  Request the url and store the response into NSData
+        NSData *data = [NSData dataWithContentsOfURL:URL];
     
-    NSString *response = [self nodeName:@"menuItems" XMLData:[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding]];
-    NSMutableArray *tempHeadlines = [[NSMutableArray alloc] init];
-    NSMutableArray *tempMakes = [[NSMutableArray alloc] init];
-    while ([response rangeOfString:@"menuItem"].location != NSNotFound){
-        NSString *tempWhole = [self nodeName:@"menuItem" XMLData:response];
-        [tempHeadlines addObject:[self nodeName:@"text" XMLData:tempWhole]];
-        [tempMakes addObject:[NSString stringWithFormat:@"%@",[self nodeName:@"text" XMLData:tempWhole]]];
-        NSString *fullContents = [NSString stringWithFormat:@"<menuItem>%@</menuItem>", tempWhole];
-        response = [response stringByReplacingOccurrencesOfString:fullContents withString:@""];
+        NSString *response = [self nodeName:@"menuItems" XMLData:[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding]];
+        NSMutableArray *tempHeadlines = [[NSMutableArray alloc] init];
+        NSMutableArray *tempMakes = [[NSMutableArray alloc] init];
+        while ([response rangeOfString:@"menuItem"].location != NSNotFound){
+            NSString *tempWhole = [self nodeName:@"menuItem" XMLData:response];
+            [tempHeadlines addObject:[self nodeName:@"text" XMLData:tempWhole]];
+            [tempMakes addObject:[NSString stringWithFormat:@"%@",[self nodeName:@"text" XMLData:tempWhole]]];
+            NSString *fullContents = [NSString stringWithFormat:@"<menuItem>%@</menuItem>", tempWhole];
+            response = [response stringByReplacingOccurrencesOfString:fullContents withString:@""];
+        }
+        self.marki = tempHeadlines;
+        // self.modeli= tempMakes;
+        [marki_dropdown reloadAllComponents];
+    } else {
+        if([self internetActive] == NO) {
+            UIAlertView *noInternetConnectionAlert = [[UIAlertView alloc] initWithTitle:@"No internet connection" message:@"You forgot to turn on the Internet. Go to Settings, we will be waiting" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [noInternetConnectionAlert show];
+        }
+        else if([self hostActive] == NO) {
+            UIAlertView *hostIsDownAlert = [[UIAlertView alloc] initWithTitle:@"Our magic broke" message:@"You discovered our magic tricks. Our magician is taking a break. Check back later " delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [hostIsDownAlert show];
+        }
     }
-    self.marki = tempHeadlines;
-   // self.modeli= tempMakes;
-    [marki_dropdown reloadAllComponents];
 }
 
 - (void) refresh_modeli{

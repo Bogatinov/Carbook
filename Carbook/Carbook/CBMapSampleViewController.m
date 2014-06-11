@@ -15,7 +15,6 @@
 @interface CBMapSampleViewController ()
 @property (nonatomic,assign) CLLocationCoordinate2D destination;
 @end
-
 @implementation CBMapSampleViewController
 @synthesize locationManager,mapView, destination, stepsToDestination, stepItems,speedLabel,potrosnja;
 
@@ -37,7 +36,7 @@
 
 - (void) proba:(NSString *)potros {
     potrosnja=potros;
-   // NSLog(potrosnja);
+    // NSLog(potrosnja);
 }
 - (id) init{
     if (self = [super init]){
@@ -62,11 +61,11 @@
     CLLocationCoordinate2D userLocation = locationManager.location.coordinate;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (userLocation, 20000, 20000);
     [mapView setRegion:region animated:NO];
-    speedLabel.text=potrosnja;
-
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [UIView beginAnimations:@"animation" context:nil];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
     [UIView setAnimationDuration: 0.7];
@@ -208,14 +207,6 @@
     [manager stopUpdatingLocation];
 }
 
-- (void)mapView:(MKMapView *)mapView
-didUpdateUserLocation:
-(MKUserLocation *)userLocation
-{
-    mapView.centerCoordinate =
-    userLocation.location.coordinate;
-}
-
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
@@ -229,7 +220,9 @@ didUpdateUserLocation:
         double calculatedSpeed = distanceChange / sinceLastUpdate;
     }
     if(gpsSpeed > 0) {
-        //_speedLabel.text = [NSString stringWithFormat:@"%.02f m/s", gpsSpeed];
+        mapView.centerCoordinate = newLocation.coordinate;
+        // TODO: find a way to display nicely about current data
+        //speedLabel.text = [NSString stringWithFormat:@"%.02f m/s", gpsSpeed];
     }
 }
 
@@ -257,11 +250,11 @@ didUpdateUserLocation:
         MKPinAnnotationView *dropPin=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"venues"];
         UIButton *disclosureButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
         [disclosureButton addTarget:self action:@selector(getDirections) forControlEvents:UIControlEventTouchUpInside];
-    
+        
         dropPin.rightCalloutAccessoryView = disclosureButton;
         dropPin.animatesDrop = YES;
         dropPin.canShowCallout = YES;
-    
+        
         return dropPin;
     }
 }
@@ -287,6 +280,7 @@ didUpdateUserLocation:
              if (error) {
                  stepsToDestination.enabled = NO;
                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not reach that far" message:[error localizedFailureReason] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+                 speedLabel.text = @"";
                  [alert show];
              } else {
                  MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance ([[locationManager location] coordinate], 3000, 3000);
@@ -305,6 +299,13 @@ didUpdateUserLocation:
     {
         [mapView addOverlay:route.polyline level:MKOverlayLevelAboveRoads];
         stepItems = route.steps;
+        float dist=route.distance/1000;
+            float na_sto_kilometra;
+            NSArray* str = [potrosnja componentsSeparatedByString: @"l"];
+            NSString* potros = [str objectAtIndex: 0];
+            na_sto_kilometra=[potros floatValue];
+            float vkupno=dist*(na_sto_kilometra/100);
+            speedLabel.text =[NSString stringWithFormat:@"%.2f Liters of fuel to reach the destination, %.2f km distance",vkupno,dist];
     }
 }
 
