@@ -45,7 +45,7 @@
 		A32BE4351940B25000212A9E /* PotrozuvackaModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A32BE4331940B25000212A9E /* PotrozuvackaModel.xcdatamodeld */; };
 		A36FDAEE193B975B009B602C /* CBCameraSharer.m in Sources */ = {isa = PBXBuildFile; fileRef = A36FDAED193B975B009B602C /* CBCameraSharer.m */; };
 		A36FDAF1193BAC85009B602C /* CBStepTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A36FDAF0193BAC85009B602C /* CBStepTableViewCell.m */; };
-		A3EDE2C81949C9B600F91F18 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EDE2C71949C9B600F91F18 /* Reachability.m */; };
+		A3EDE2CB194A185400F91F18 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EDE2C9194A185400F91F18 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,8 +107,8 @@
 		A36FDAED193B975B009B602C /* CBCameraSharer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCameraSharer.m; sourceTree = "<group>"; };
 		A36FDAEF193BAC85009B602C /* CBStepTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBStepTableViewCell.h; sourceTree = "<group>"; };
 		A36FDAF0193BAC85009B602C /* CBStepTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStepTableViewCell.m; sourceTree = "<group>"; };
-		A3EDE2C61949C9B600F91F18 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ../../../../Downloads/Reachability/Reachability/Reachability.h; sourceTree = "<group>"; };
-		A3EDE2C71949C9B600F91F18 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ../../../../Downloads/Reachability/Reachability/Reachability.m; sourceTree = "<group>"; };
+		A3EDE2C9194A185400F91F18 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		A3EDE2CA194A185400F91F18 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,8 +256,8 @@
 		A32BE41F1940B02000212A9E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A3EDE2C61949C9B600F91F18 /* Reachability.h */,
-				A3EDE2C71949C9B600F91F18 /* Reachability.m */,
+				A3EDE2C9194A185400F91F18 /* Reachability.m */,
+				A3EDE2CA194A185400F91F18 /* Reachability.h */,
 				A32BE4331940B25000212A9E /* PotrozuvackaModel.xcdatamodeld */,
 				A32BE4301940B24400212A9E /* CBrssParser.h */,
 				A32BE4311940B24400212A9E /* CBrssParser.m */,
@@ -388,13 +388,13 @@
 				A32BE4321940B24400212A9E /* CBrssParser.m in Sources */,
 				A32BE4231940B18700212A9E /* CBAppDelegate.m in Sources */,
 				A32BE42C1940B22A00212A9E /* CBViewController.m in Sources */,
-				A3EDE2C81949C9B600F91F18 /* Reachability.m in Sources */,
 				65B9DEFC190933B100B7CE8F /* main.m in Sources */,
 				A36FDAF1193BAC85009B602C /* CBStepTableViewCell.m in Sources */,
 				A36FDAEE193B975B009B602C /* CBCameraSharer.m in Sources */,
 				A32BE42F1940B23C00212A9E /* CBCar.m in Sources */,
 				A32BE42B1940B22A00212A9E /* CBStepsTableViewController.m in Sources */,
 				A32BE4351940B25000212A9E /* PotrozuvackaModel.xcdatamodeld in Sources */,
+				A3EDE2CB194A185400F91F18 /* Reachability.m in Sources */,
 				A32BE42A1940B22A00212A9E /* CBMapSampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
