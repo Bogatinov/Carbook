@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>8D5BE8D5-71CB-4E11-AD06-5CC07C3BA047</string>
+	<string>90CEBC84-358C-4CAA-AC19-6AE8DAD814BF</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Carbook</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>BD488630-44FD-4912-B2D3-7AEFA04141A5</key>
-		<string>https://github.com/Bogatinov/Carbook.git</string>
+		<key>E9F41036-7581-491E-AAE6-EECBB35B2F83</key>
+		<string>https://github.com/Bogatinov/Carbook</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Carbook/Carbook.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>BD488630-44FD-4912-B2D3-7AEFA04141A5</key>
+		<key>E9F41036-7581-491E-AAE6-EECBB35B2F83</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/Bogatinov/Carbook.git</string>
+	<string>https://github.com/Bogatinov/Carbook</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>BD488630-44FD-4912-B2D3-7AEFA04141A5</string>
+	<string>E9F41036-7581-491E-AAE6-EECBB35B2F83</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>BD488630-44FD-4912-B2D3-7AEFA04141A5</string>
+			<string>E9F41036-7581-491E-AAE6-EECBB35B2F83</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Carbook</string>
 		</dict>

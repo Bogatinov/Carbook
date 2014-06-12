@@ -118,7 +118,7 @@
     modeli_dropdown.delegate=self;
     godini= [[NSMutableArray alloc] init];
     modeli= [[NSMutableArray alloc] init];
-    for( int i=2014;i>1970;i--)
+    for( int i=2014;i>=1984;i--)
     {
         [godini addObject:[NSString stringWithFormat:@"%u",i]];
     }
@@ -162,7 +162,26 @@
         else if(pickerView==godina_dropdown)
         {
             selektirana_godina=[self.godini objectAtIndex:row];
+            NSString *temp_selektirana_marka=selektirana_marka;
+            
             [self refresh];
+           // NSLog([NSString stringWithFormat:@"%i e golemina",[marki count]]);
+            int selected_index=-1;
+            
+            for(int i=0;i<[marki count]-2;i++)
+            {
+               
+            if([temp_selektirana_marka isEqualToString:[self.marki objectAtIndex:i]])
+                selected_index=i;
+            }
+            // NSLog(@"ovde nepagam  ");
+            if(selected_index!=-1){
+              
+              //  NSLog(@"ovde nepagam  %i",selected_index);
+
+                [marki_dropdown selectRow:selected_index inComponent:0 animated:NO];
+            
+            }
         }
         else
         {
