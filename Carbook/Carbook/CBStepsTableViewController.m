@@ -67,7 +67,12 @@
     MKRouteStep *item = _stepItems[row];
     
     cell.instructionLabel.text = item.instructions;
-    cell.distanceLabel.text = [NSString stringWithFormat:@"%.02f km", item.distance / 1000.0];
+    if (item.distance < 1000) {
+        cell.distanceLabel.text = [NSString stringWithFormat:@"%d m", item.distance];
+    } else {
+        cell.distanceLabel.text = [NSString stringWithFormat:@"%.02f km", item.distance / 1000.0];
+    }
+    
     
     return cell;
 }
