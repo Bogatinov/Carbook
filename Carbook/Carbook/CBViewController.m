@@ -82,15 +82,16 @@
     }
     return self;
 }
-
--(void)viewWillAppear:(BOOL)animated {
-    if([self internetActive] == NO) {
-        UIAlertView *noInternetConnectionAlert = [[UIAlertView alloc] initWithTitle:@"No internet connection" message:@"You forgot to turn on the Internet. Go to Settings, we will be waiting" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-        [noInternetConnectionAlert show];
-    }
-    else if([self hostActive] == NO) {
-        UIAlertView *hostIsDownAlert = [[UIAlertView alloc] initWithTitle:@"Our magic broke" message:@"You discovered our magic tricks. Our magician is taking a break. Check back later " delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-        [hostIsDownAlert show];
+-(void)viewDidAppear:(BOOL)animated {
+    if (animated) {
+        if([self internetActive] == NO) {
+            UIAlertView *noInternetConnectionAlert = [[UIAlertView alloc] initWithTitle:@"No internet connection" message:@"You forgot to turn on the Internet. Go to Settings, we will be waiting" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [noInternetConnectionAlert show];
+        }
+        else if([self hostActive] == NO) {
+            UIAlertView *hostIsDownAlert = [[UIAlertView alloc] initWithTitle:@"Our magic broke" message:@"You discovered our magic tricks. Our magician is taking a break. Check back later " delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [hostIsDownAlert show];
+        }
     }
 }
 

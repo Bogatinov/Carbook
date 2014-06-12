@@ -23,8 +23,6 @@
     [locationManager setDistanceFilter:50];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyBestForNavigation];
     [locationManager setDelegate:self];
-    if([CLLocationManager headingAvailable]) //check if device has magnetometer
-        [locationManager startUpdatingHeading];
 }
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
@@ -57,6 +55,8 @@
     [mapView setRegion:region animated:YES];
     speedLabel.text = [NSString stringWithFormat:@"Consumption: %@",potrosnja];
     [locationManager startUpdatingLocation];
+    if([CLLocationManager headingAvailable]) //check if device has magnetometer
+        [locationManager startUpdatingHeading];
 }
 
 - (void)didReceiveMemoryWarning
