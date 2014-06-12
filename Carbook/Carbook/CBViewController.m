@@ -155,7 +155,6 @@
             }
             if(selected_index!=-1){
                 [marki_dropdown selectRow:selected_index inComponent:0 animated:NO];
-            
             }
         }
         else
@@ -291,7 +290,6 @@
             response = [response stringByReplacingOccurrencesOfString:fullContents withString:@""];
         }
         self.marki = tempHeadlines;
-        // self.modeli= tempMakes;
         [marki_dropdown reloadAllComponents];
     }
 }

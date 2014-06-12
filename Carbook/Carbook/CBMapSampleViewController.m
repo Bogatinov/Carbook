@@ -53,7 +53,8 @@
     CLLocationCoordinate2D userLocation = locationManager.location.coordinate;
     [mapView setDelegate:self];
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (userLocation, 2000, 2000);
-    [mapView setRegion:region animated:NO];
+    [mapView setRegion:region animated:YES];
+    speedLabel.text = [NSString stringWithFormat:@"Consumption: %@",potrosnja];
     [locationManager startUpdatingLocation];
 }
 
