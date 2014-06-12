@@ -10,13 +10,13 @@
 #import "CbAppDelegate.h"
 #import "CBCar.h"
 #import "CBMapSampleViewController.h"
-#import "CBReachability.h"
+#import "Reachability.h"
 #import <SystemConfiguration/SystemConfiguration.h>
 
 
 @interface CBViewController ()
-@property (nonatomic, strong) CBReachability* internetReachable;
-@property (nonatomic, strong) CBReachability* hostReachable;
+@property (nonatomic, strong) Reachability* internetReachable;
+@property (nonatomic, strong) Reachability* hostReachable;
 @property (nonatomic,assign) BOOL internetActive;
 @property (nonatomic,assign) BOOL hostActive;
 @end
@@ -44,12 +44,11 @@
 -(void)viewWillAppear:(BOOL)animated {
     // check for internet connection
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
-    
-    _internetReachable = [CBReachability reachabilityForInternetConnection];
+    _internetReachable = [Reachability reachabilityForInternetConnection];
     [_internetReachable startNotifier];
     
     // check if a pathway to a random host exists
-    _hostReachable = [CBReachability reachabilityWithHostName:@"http://www.fueleconomy.gov"];
+    _hostReachable = [Reachability reachabilityWithHostName:@"www.fueleconomy.gov"];
     [_hostReachable startNotifier];
 }
 
@@ -113,6 +112,19 @@
 {
     [super viewDidLoad];
     [self refresh];
+    NSString *temp=[self readFromFile];
+    if([temp isEqual: @"error"])
+    {
+        
+    }
+    else{
+        string_potrosnja=temp;
+        selektirana_godina=@"2014";
+        [self performSegueWithIdentifier:@"Carbook" sender:self];
+        //CBMapSampleViewController *ivc = [self.storyboard instantiateViewControllerWithIdentifier:@"CBMapSampleViewController"];
+        //ivc.potrosnja = string_potrosnja;
+        //[self.navigationController pushViewController:ivc animated:NO];
+    }
    marki_dropdown.delegate=self;
     godina_dropdown.delegate=self;
     modeli_dropdown.delegate=self;
@@ -123,19 +135,6 @@
         [godini addObject:[NSString stringWithFormat:@"%u",i]];
     }
     [godina_dropdown reloadAllComponents];
-    NSString *temp=[self readFromFile];
-    if([temp isEqual: @"error"])
-    {
-        
-    }
-    else{
-        string_potrosnja=temp;
-        selektirana_godina=@"2014";
-        CBMapSampleViewController *ivc = [self.storyboard instantiateViewControllerWithIdentifier:@"CBMapSampleViewController"];
-        [self.navigationController pushViewController:ivc animated:YES];
-        [ivc proba:string_potrosnja];
-
-    }
 }
 
 -(NSString *) readFromFile
@@ -298,13 +297,13 @@
                   filepath, [err localizedFailureReason]);
         }
     CBMapSampleViewController *secView = [segue destinationViewController];
-    [secView proba:string_potrosnja];
+    secView.potrosnja = string_potrosnja;
 }
 
 
 
 - (void) refresh{
-    if([self internetActive] && [self hostReachable]) {
+    if([self internetActive] && [self hostActive]) {
         NSMutableString * str= [NSMutableString string];
         if(selektirana_godina!=nil){
             [str appendString:@"http://www.fueleconomy.gov/ws/rest/vehicle/menu/make?year="];

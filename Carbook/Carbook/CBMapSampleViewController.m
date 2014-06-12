@@ -19,10 +19,9 @@
 @synthesize locationManager,mapView, destination, stepsToDestination, stepItems,speedLabel,potrosnja;
 
 - (void) initialize{
-    self.lastLocation = nil;
     self.locationManager = [[CLLocationManager alloc] init];
-    [locationManager setDistanceFilter:10];
-    [locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
+    [locationManager setDistanceFilter:50];
+    [locationManager setDesiredAccuracy:kCLLocationAccuracyBestForNavigation];
     [locationManager setDelegate:self];
     
 }
@@ -36,7 +35,6 @@
 
 - (void) proba:(NSString *)potros {
     potrosnja=potros;
-    // NSLog(potrosnja);
 }
 - (id) init{
     if (self = [super init]){
@@ -56,21 +54,11 @@
 {
     [super viewDidLoad];
     mapView.showsUserLocation = YES;
-    [locationManager startUpdatingLocation];
-    [mapView setDelegate:self];
     CLLocationCoordinate2D userLocation = locationManager.location.coordinate;
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (userLocation, 20000, 20000);
+    [mapView setDelegate:self];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (userLocation, 2000, 2000);
     [mapView setRegion:region animated:NO];
-    
-}
-
--(void)viewWillDisappear:(BOOL)animated {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [UIView beginAnimations:@"animation" context:nil];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-    [UIView setAnimationDuration: 0.7];
-    [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:NO];
-    [UIView commitAnimations];
+    [locationManager startUpdatingLocation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -229,7 +217,9 @@
 
 #pragma mark -
 #pragma mark MKMapView Delegate
-
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+    mapView.centerCoordinate = userLocation.coordinate;
+}
 - (IBAction)changeMapType:(id)sender {
     if (mapView.mapType == MKMapTypeStandard) {
         mapView.mapType = MKMapTypeSatellite;
@@ -330,6 +320,11 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ShowSteps"]) {
+        [UIView beginAnimations:@"animation" context:nil];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        [UIView setAnimationDuration: 0.7];
+        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:NO];
+        [UIView commitAnimations];
         CBStepsTableViewController *stvc = (CBStepsTableViewController *)segue.destinationViewController;
         stvc.stepItems = stepItems;
     }

@@ -18,7 +18,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *speedLabel;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) CLLocation *lastLocation;
 @property (strong, nonatomic) NSMutableArray *matchingItems;
 @property (strong, nonatomic) NSArray *stepItems;
 @property (strong, nonatomic) NSString *potrosnja;
@@ -26,5 +25,4 @@
 - (IBAction)textFieldReturn:(id)sender;
 - (IBAction)useCamera:(id)sender;
 - (IBAction)shareImage:(id)sender;
-- (void) proba:(NSString *)ime;
 @end
