@@ -32,10 +32,6 @@
     }
     return self;
 }
-
-- (void) proba:(NSString *)potros {
-    potrosnja=potros;
-}
 - (id) init{
     if (self = [super init]){
         [self initialize];

@@ -23,9 +23,4 @@
 @property (strong,atomic) NSString * selektirana_marka;
 @property (strong,atomic) NSString * selektirana_godina;
 @property (strong,atomic) NSString * selektiran_model;
- @property (strong,atomic) NSString* string_potrosnja ;
-@property(nonatomic,retain) NSFileManager *fileMgr;
-@property(nonatomic,retain) NSString *homeDir;
-@property(nonatomic,retain) NSString *filename;
-@property(nonatomic,retain) NSString *filepath;
 @end

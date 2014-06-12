@@ -35,19 +35,11 @@
 @synthesize selektiran_model;
 @synthesize selektirana_marka;
 @synthesize selektirana_godina;
-@synthesize string_potrosnja;
-@synthesize fileMgr;
-@synthesize filename;
-@synthesize filepath;
-@synthesize homeDir;
 
--(void)viewWillAppear:(BOOL)animated {
-    // check for internet connection
+-(void)initialize {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(checkNetworkStatus:) name:kReachabilityChangedNotification object:nil];
     _internetReachable = [Reachability reachabilityForInternetConnection];
     [_internetReachable startNotifier];
-    
-    // check if a pathway to a random host exists
     _hostReachable = [Reachability reachabilityWithHostName:@"www.fueleconomy.gov"];
     [_hostReachable startNotifier];
 }
@@ -108,24 +100,47 @@
     }
 }
 
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]){
+        [self initialize];
+    }
+    return self;
+}
+- (id) init{
+    if (self = [super init]){
+        [self initialize];
+    }
+    return self;
+}
+
+- (id) initWithCoder:(NSCoder *)aDecoder{
+    if (self = [super initWithCoder:aDecoder]){
+        [self initialize];
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self refresh];
+    if([self internetActive] == NO) {
+        UIAlertView *noInternetConnectionAlert = [[UIAlertView alloc] initWithTitle:@"No internet connection" message:@"You forgot to turn on the Internet. Go to Settings, we will be waiting" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+        [noInternetConnectionAlert show];
+    }
+    else if([self hostActive] == NO) {
+        UIAlertView *hostIsDownAlert = [[UIAlertView alloc] initWithTitle:@"Our magic broke" message:@"You discovered our magic tricks. Our magician is taking a break. Check back later " delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+        [hostIsDownAlert show];
+    }
     NSString *temp=[self readFromFile];
     if([temp isEqual: @"error"])
     {
         
     }
     else{
-        string_potrosnja=temp;
         selektirana_godina=@"2014";
         [self performSegueWithIdentifier:@"Carbook" sender:self];
-        //CBMapSampleViewController *ivc = [self.storyboard instantiateViewControllerWithIdentifier:@"CBMapSampleViewController"];
-        //ivc.potrosnja = string_potrosnja;
-        //[self.navigationController pushViewController:ivc animated:NO];
     }
-   marki_dropdown.delegate=self;
+    marki_dropdown.delegate=self;
     godina_dropdown.delegate=self;
     modeli_dropdown.delegate=self;
     godini= [[NSMutableArray alloc] init];
@@ -135,13 +150,13 @@
         [godini addObject:[NSString stringWithFormat:@"%u",i]];
     }
     [godina_dropdown reloadAllComponents];
+    [self refresh];
 }
 
 -(NSString *) readFromFile
 {
-    filepath = [[NSString alloc] init];
     NSError *error;
-    filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:@"carbook.data"];
+    NSString *filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:@"carbook.data"];
     NSString *txtInFile = [[NSString alloc] initWithContentsOfFile:filepath encoding:NSUnicodeStringEncoding error:&error];
     
     if(!txtInFile)
@@ -249,10 +264,7 @@
     
 }
 -(NSString *)GetDocumentDirectory{
-    fileMgr = [NSFileManager defaultManager];
-    homeDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
-    
-    return homeDir;
+    return[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
 }
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
@@ -278,26 +290,19 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [super prepareForSegue:segue sender:sender];
-        CBCar *car= [appdelegate.cars objectAtIndex:0];
-        double  liters=235.214/car.comb08;
+    CBCar *car= [appdelegate.cars objectAtIndex:0];
+    double  liters=235.214/car.comb08;
+    NSString* consumption = [NSString stringWithFormat:@"%.2fl/100km", liters];
+    NSError *err;
+    NSString *filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:@"carbook.data"];
         
+    BOOL ok = [consumption writeToFile:filepath atomically:YES encoding:NSUnicodeStringEncoding error:&err];
         
-        string_potrosnja = [NSString stringWithFormat:@"%.2fl/100km", liters];
-        
-        filepath = [[NSString alloc] init];
-        NSError *err;
-        
-        filepath = [self.GetDocumentDirectory stringByAppendingPathComponent:@"carbook.data"];
-        NSString * textToWrite=string_potrosnja;
-        
-        BOOL ok = [textToWrite writeToFile:filepath atomically:YES encoding:NSUnicodeStringEncoding error:&err];
-        
-        if (!ok) {
-            NSLog(@"Error writing file at %@\n%@",
-                  filepath, [err localizedFailureReason]);
-        }
+    if (!ok) {
+        NSLog(@"Error writing file at %@\n%@",filepath, [err localizedFailureReason]);
+    }
     CBMapSampleViewController *secView = [segue destinationViewController];
-    secView.potrosnja = string_potrosnja;
+    secView.potrosnja = consumption;
 }
 
 
@@ -330,15 +335,6 @@
         self.marki = tempHeadlines;
         // self.modeli= tempMakes;
         [marki_dropdown reloadAllComponents];
-    } else {
-        if([self internetActive] == NO) {
-            UIAlertView *noInternetConnectionAlert = [[UIAlertView alloc] initWithTitle:@"No internet connection" message:@"You forgot to turn on the Internet. Go to Settings, we will be waiting" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-            [noInternetConnectionAlert show];
-        }
-        else if([self hostActive] == NO) {
-            UIAlertView *hostIsDownAlert = [[UIAlertView alloc] initWithTitle:@"Our magic broke" message:@"You discovered our magic tricks. Our magician is taking a break. Check back later " delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-            [hostIsDownAlert show];
-        }
     }
 }
 
