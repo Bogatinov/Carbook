@@ -23,7 +23,8 @@
     [locationManager setDistanceFilter:50];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyBestForNavigation];
     [locationManager setDelegate:self];
-    
+    if([CLLocationManager headingAvailable]) //check if device has magnetometer
+        [locationManager startUpdatingHeading];
 }
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
@@ -188,6 +189,12 @@
 }
 
 #pragma mark - CLLocationManagerDelegate Methods
+-(void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
+    if (newHeading.headingAccuracy > 0) {
+        CLLocationDirection direction = newHeading.magneticHeading;
+    }
+}
+
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     [manager stopUpdatingLocation];
 }
@@ -211,12 +218,14 @@
     }
 }
 
-
-#pragma mark -
-#pragma mark MKMapView Delegate
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     mapView.centerCoordinate = userLocation.coordinate;
 }
+
+
+#pragma mark -
+#pragma mark MKMapView methods
+
 - (IBAction)changeMapType:(id)sender {
     if (mapView.mapType == MKMapTypeStandard) {
         mapView.mapType = MKMapTypeSatellite;

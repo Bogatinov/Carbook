@@ -109,6 +109,7 @@
 		A36FDAF0193BAC85009B602C /* CBStepTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStepTableViewCell.m; sourceTree = "<group>"; };
 		A3EDE2C9194A185400F91F18 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A3EDE2CA194A185400F91F18 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		A3EDE2CC194A27BE00F91F18 /* Carbook документација.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Carbook документација.docx"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +154,7 @@
 		65B9DEE3190933B100B7CE8F = {
 			isa = PBXGroup;
 			children = (
+				A3EDE2CC194A27BE00F91F18 /* Carbook документација.docx */,
 				A3FA21A1193C9E1B005837A0 /* Custom Controls */,
 				65B9DEF5190933B100B7CE8F /* Carbook */,
 				65B9DF14190933B100B7CE8F /* CarbookTests */,
