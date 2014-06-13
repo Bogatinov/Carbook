@@ -229,9 +229,11 @@
 - (IBAction)changeMapType:(id)sender {
     if (mapView.mapType == MKMapTypeStandard) {
         mapView.mapType = MKMapTypeSatellite;
+        speedLabel.textColor=[UIColor whiteColor];
     }
     else {
         mapView.mapType = MKMapTypeStandard;
+        speedLabel.textColor=[UIColor blackColor];
     }
 }
 

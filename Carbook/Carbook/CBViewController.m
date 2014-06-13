@@ -105,7 +105,10 @@
     }
     else{
         selektirana_godina=@"2014";
-        [self performSegueWithIdentifier:@"Carbook" sender:self];
+        CBMapSampleViewController *ivc = [self.storyboard instantiateViewControllerWithIdentifier:@"CBMapSampleViewController"];
+        ivc.potrosnja = temp;
+        [self.navigationController pushViewController:ivc animated:NO];
+        //[self performSegueWithIdentifier:@"Carbook" sender:self];
     }
     marki_dropdown.delegate=self;
     godina_dropdown.delegate=self;
@@ -146,6 +149,8 @@
             NSString *temp_selektirana_marka=selektirana_marka;
             
             [self refresh];
+            
+            
             int selected_index=-1;
             
             for(int i=0;i<[marki count]-2;i++)
